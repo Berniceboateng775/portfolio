@@ -9,7 +9,7 @@ const projects = [
     githubUrl: null,
     mlUrl: 'https://huggingface.co/spaces/Bernice775/drug-interaction-prediction',
     status: 'live',
-    images: ['/images/medmate-hero.png', '/images/medmate-signup.png', '/images/medmate-results.png'],
+    images: ['/images/medmate-hero.png','/images/anonymous.png', '/images/medmate-result.png'],
   },
   {
     title: 'Book Collection Management System',
@@ -18,7 +18,7 @@ const projects = [
     liveUrl: null,
     githubUrl: 'https://github.com/Berniceboateng775/Book-management-system-mvc',
     status: 'completed',
-    images: [],
+    images: [ '/images/mvc1.png', '/images/mvc2.png', '/images/mvc3.png'],
   },
   {
     title: 'Hubtel Clone',
@@ -39,13 +39,13 @@ const projects = [
     images: [],
   },
   {
-    title: 'Book App & Reader Community Platform',
+    title: 'Limerence',
     description: 'Book-centric application allowing users to discover books and connect within a reader-focused social community. Features user interaction, social engagement, and content sharing.',
     tech: ['React', 'Backend APIs', 'Database Design'],
     liveUrl: null,
     githubUrl: null,
     status: 'in-progress',
-    images: [],
+    images: ['/images/lim1.png', '/images/lim2.png', '/images/lim3.png', '/images/lim4.png', '/images/lim5.png'],
   },
   {
     title: 'E-commerce Website',
@@ -54,7 +54,7 @@ const projects = [
     liveUrl: null,
     githubUrl: 'https://github.com/Berniceboateng775/Project1-E-ccomerce',
     status: 'completed',
-    images: [],
+    images: ['/images/ecom-sign.png', '/images/ecom-log.png', '/images/ecom-home.png'],
   },
 ];
 
