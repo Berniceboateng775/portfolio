@@ -34,16 +34,17 @@ export default function Contact() {
       if (response.ok && result.success === "true") {
         setStatus('sent');
         setFormData({ name: '', email: '', message: '' });
+        // Reset button back to original form quickly after sending
+        setTimeout(() => setStatus('idle'), 2000);
       } else {
         setStatus('error');
+        setTimeout(() => setStatus('idle'), 3000);
       }
     } catch (error) {
       console.error('Contact form error:', error);
       setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
     }
-    
-    // Reset status back to idle after 4 seconds
-    setTimeout(() => setStatus('idle'), 4000);
   };
 
   return (
