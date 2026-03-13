@@ -12,6 +12,16 @@ const projects = [
     images: ['/images/medmate-hero.png','/images/anonymous.png', '/images/medmate-result.png'],
   },
   {
+    title: 'Vellichor AI — Emotion & Theme Analysis',
+    description: 'Full-stack literary analysis platform powered by a custom fine-tuned GPT-2 model. It classifies the emotional vibe and subtext of written dialogue into 7 universal categories with 79% accuracy, using context-aware engineering and dropout regularization. Outperforms standard models in nuanced fiction analysis by reading subtext rather than surface-level keywords.',
+    tech: ['HTML/CSS/JS', 'FastAPI', 'React', 'MongoDB', 'GPT-2', 'Docker'],
+    liveUrl: 'https://vellichor-ai.vercel.app',
+    githubUrl: null,
+    mlUrl: 'https://vellichor.onrender.com',
+    status: 'live',
+    images: ['/images/vellichor.jpg'],
+  },
+  {
     title: 'Book Collection Management System',
     description: 'Web application following MVC architecture for managing book collections. Features include adding books with details, dynamic genre filtering, CRUD operations, and a responsive React frontend with MongoDB backend.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'MVC'],

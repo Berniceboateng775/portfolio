@@ -5,6 +5,7 @@ const experiences = [
     location: 'Accra, Ghana',
     period: 'Dec 2025 — Present',
     points: [
+      'Built Vellichor AI, a full-stack literary analysis platform powered by a custom fine-tuned GPT-2 model for emotion and subtext detection in text, deployed via FastAPI and Docker',
       'Developed an end-to-end customer churn prediction model using Logistic Regression, achieving 82% accuracy and 0.86 ROC AUC score by engineering features from 20+ customer attributes',
       'Deployed ML model as a RESTful Flask API containerized with Docker, implementing feature alignment logic and deploying to AWS Elastic Beanstalk for scalable cloud serving',
       'Built regression models for car price prediction and laptop price analysis using Python (Pandas, NumPy, Scikit-learn), performing comprehensive EDA and feature engineering',
