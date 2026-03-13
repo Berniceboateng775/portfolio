@@ -20,7 +20,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Link href="/" className="nav-logo">
-          Bernice.
+          My Portfolio.
         </Link>
 
         {/* Desktop Navigation */}
