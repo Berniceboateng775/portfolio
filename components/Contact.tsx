@@ -14,12 +14,36 @@ export default function Contact() {
     e.preventDefault();
     setStatus('sending');
     
-    // Simulate form submission
-    setTimeout(() => {
-      setStatus('sent');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1000);
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/berniceboateng775@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: 'New submission from your portfolio!'
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.success === "true") {
+        setStatus('sent');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setStatus('error');
+    }
+    
+    // Reset status back to idle after 4 seconds
+    setTimeout(() => setStatus('idle'), 4000);
   };
 
   return (
