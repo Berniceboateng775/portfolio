@@ -41,10 +41,10 @@ export default function Hero() {
       <div className="hero-bg" />
       
       <div className="hero-content">
-        <p className="hero-greeting">Hello, I&apos;m</p>
-        <h1 className="hero-name">Bernice Animwaa Boateng</h1>
+        <p className="hero-greeting">const name = &quot;Bernice Animwaa Boateng&quot;;</p>
+        <h1 className="hero-name">&lt;Developer /&gt;</h1>
         <p className="hero-title">
-          <span className="typed-text">{displayText}</span>
+          <span className="typed-text" style={{ fontFamily: 'JetBrains Mono, monospace' }}>{displayText}</span>
         </p>
         
         <div className="hero-cta">

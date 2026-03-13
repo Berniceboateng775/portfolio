@@ -8,6 +8,7 @@ const projects = [
     liveUrl: 'https://medmate-ddi.vercel.app',
     githubUrl: null,
     mlUrl: 'https://huggingface.co/spaces/Bernice775/drug-interaction-prediction',
+    videoUrl: 'https://youtu.be/3Hjd1kbrc1A',
     status: 'live',
     images: ['/images/medmate-hero.png','/images/anonymous.png', '/images/medmate-result.png'],
   },
@@ -18,6 +19,7 @@ const projects = [
     liveUrl: 'https://vellichor-ai.vercel.app',
     githubUrl: null,
     mlUrl: 'https://vellichor.onrender.com',
+    videoUrl: 'https://youtu.be/8AguS4kIdXQ',
     status: 'live',
     images: ['/images/vellichor.jpg'],
   },
@@ -99,11 +101,19 @@ export default function Projects() {
                     </a>
                   )}
                   {project.mlUrl && (
-                    <a href={project.mlUrl} target="_blank" rel="noopener noreferrer" aria-label="ML Model">
+                    <a href={project.mlUrl} target="_blank" rel="noopener noreferrer" aria-label="ML Model" title="View ML Model">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="12" cy="12" r="3" />
                         <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24" />
                       </svg>
+                    </a>
+                  )}
+                  {project.videoUrl && (
+                    <a href={project.videoUrl} target="_blank" rel="noopener noreferrer" aria-label="Watch Demo Video" title="Watch Demo" className="video-link" style={{ display: 'flex', alignItems: 'center', gap: '4px', border: '1px solid var(--accent)', padding: '4px 12px', borderRadius: '100px', backgroundColor: 'var(--accent-glow)' }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 3l14 9-14 9V3z" fill="var(--accent)" />
+                      </svg>
+                      <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--accent)' }}>Demo</span>
                     </a>
                   )}
                 </div>
