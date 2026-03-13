@@ -20,6 +20,9 @@ export const metadata: Metadata = {
       "Software Engineer, Data Analyst, and ML enthusiast building innovative solutions.",
     type: "website",
   },
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 export default function RootLayout({
