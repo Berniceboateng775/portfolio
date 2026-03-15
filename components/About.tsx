@@ -15,7 +15,7 @@ export default function About() {
             </p>
             <p>
               My work spans from building ML-powered drug interaction checkers to 
-              developing full-scale AI analysis platforms. I thrive at the intersection 
+              developing customer churn prediction models. I thrive at the intersection 
               of software engineering and data science, leveraging both to deliver 
               innovative solutions.
             </p>
