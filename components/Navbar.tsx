@@ -18,7 +18,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <a href="/" className="nav-logo">
-          My Portfolio.
+          My Portfolio
         </a>
 
         {/* Desktop Navigation */}
