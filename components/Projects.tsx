@@ -24,6 +24,15 @@ const projects = [
     images: ['/images/vellichor.jpg'],
   },
   {
+    title: 'Limerence',
+    description: 'Book-centric application allowing users to discover books and connect within a reader-focused social community. Features user interaction, social engagement, and content sharing.',
+    tech: ['React', 'Backend APIs', 'Database Design'],
+    liveUrl: null,
+    githubUrl: null,
+    status: 'in-progress',
+    images: ['/images/lim1.png', '/images/lim2.png', '/images/lim3.png', '/images/lim4.png', '/images/lim5.png'],
+  },
+  {
     title: 'Book Collection Management System',
     description: 'Web application following MVC architecture for managing book collections. Features include adding books with details, dynamic genre filtering, CRUD operations, and a responsive React frontend with MongoDB backend.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'MVC'],
@@ -39,7 +48,7 @@ const projects = [
     liveUrl: null,
     githubUrl: 'https://github.com/Berniceboateng775/Hubtel-Clone',
     status: 'completed',
-    images: [],
+    images: ['/images/hubtel1.png'],
   },
   {
     title: 'Smart Dustbin System — IoT Prototype',
@@ -48,17 +57,9 @@ const projects = [
     liveUrl: null,
     githubUrl: null,
     status: 'completed',
-    images: [],
+    images: ['/images/bin1.png'],
   },
-  {
-    title: 'Limerence',
-    description: 'Book-centric application allowing users to discover books and connect within a reader-focused social community. Features user interaction, social engagement, and content sharing.',
-    tech: ['React', 'Backend APIs', 'Database Design'],
-    liveUrl: null,
-    githubUrl: null,
-    status: 'in-progress',
-    images: ['/images/lim1.png', '/images/lim2.png', '/images/lim3.png', '/images/lim4.png', '/images/lim5.png'],
-  },
+
   {
     title: 'E-commerce Website',
     description: 'E-commerce platform for product display, category management, and purchase flow. Features structured product listings and user-friendly navigation simulating real-world online shopping.',
