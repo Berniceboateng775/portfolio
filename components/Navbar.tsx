@@ -1,8 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { FiMenu, FiX } from 'react-icons/fi';
+import React, { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,18 +17,18 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Link href="/" className="nav-logo">
+        <a href="/" className="nav-logo">
           My Portfolio.
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-          <Link href="#home">Home</Link>
-          <Link href="#about">About</Link>
-          <Link href="#skills">Skills</Link>
-          <Link href="#projects">Projects</Link>
-          <Link href="#experience">Experience</Link>
-          <Link href="#contact">Contact</Link>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 16px', fontSize: '0.9rem' }}>
             Resume
           </a>
@@ -44,7 +42,18 @@ export default function Navbar() {
             aria-label="Toggle menu"
             style={{ display: 'none', background: 'none', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}
           >
-            {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            {mobileMenuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            )}
           </button>
         </div>
       </div>
@@ -57,12 +66,12 @@ export default function Navbar() {
           borderBottom: '1px solid var(--border-color)',
           display: 'flex', flexDirection: 'column', gap: '16px'
         }}>
-          <Link href="#home" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-          <Link href="#about" onClick={() => setMobileMenuOpen(false)}>About</Link>
-          <Link href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills</Link>
-          <Link href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</Link>
-          <Link href="#experience" onClick={() => setMobileMenuOpen(false)}>Experience</Link>
-          <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+          <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
+          <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills</a>
+          <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+          <a href="#experience" onClick={() => setMobileMenuOpen(false)}>Experience</a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)} style={{ textAlign: 'center' }}>
             Resume
           </a>
