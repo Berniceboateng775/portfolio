@@ -16,26 +16,26 @@ export default function Navbar() {
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container nav-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="container nav-container">
         <a href="/" className="nav-logo">
           My Portfolio.
         </a>
 
         {/* Desktop Navigation */}
-        <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+        <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 16px', fontSize: '0.9rem' }}>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary nav-resume-btn">
             Resume
           </a>
         </div>
 
         {/* Mobile Menu Button  */}
-        <div className="nav-controls" style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="nav-controls">
           <button 
             className="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

@@ -13,7 +13,7 @@ const skillCategories = [
   },
   {
     title: 'Cloud & DevOps',
-    skills: ['AWS EC2', 'AWS Elastic Beanstalk', 'Git', 'Docker', 'Hugging Face'],
+    skills: ['AWS EC2', 'AWS Elastic Beanstalk', 'Git', 'Docker', 'Hugging Face', 'Vercel', 'Render'],
   },
   {
     title: 'Tools & Other',
