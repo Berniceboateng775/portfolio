@@ -58,24 +58,19 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="mobile-menu" style={{
-          position: 'absolute', top: '100%', left: 0, right: 0,
-          background: 'var(--bg-primary)', padding: '20px',
-          borderBottom: '1px solid var(--border-color)',
-          display: 'flex', flexDirection: 'column', gap: '16px'
-        }}>
+      <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-container">
           <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
           <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
           <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills</a>
           <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
           <a href="#experience" onClick={() => setMobileMenuOpen(false)}>Experience</a>
           <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)} style={{ textAlign: 'center' }}>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>
             Resume
           </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

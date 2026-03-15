@@ -8,16 +8,12 @@ export default function About() {
           <div className="about-text">
             <h3>Building Technology That Matters</h3>
             <p>
-              I&apos;m a passionate Software Engineer and Data Analyst with expertise in 
-              developing full-stack applications and machine learning solutions. 
-              Currently, I focus on creating impactful healthcare technology and 
-              data-driven applications that solve real-world problems.
+              I&apos;m a passionate Software Engineer and Data Analyst who loves transforming complex datasets into powerful, user-friendly applications. 
+              My expertise bridges the gap between machine learning models and robust full-stack web development.
             </p>
             <p>
-              My work spans from building ML-powered drug interaction checkers to 
-              developing customer churn prediction models. I thrive at the intersection 
-              of software engineering and data science, leveraging both to deliver 
-              innovative solutions.
+              From building intelligent drug-interaction checkers to fine-tuning generative models for natural language analysis, I focus on creating technology that makes a tangible impact. 
+              I thrive on architecting end-to-end solutions, combining deep analytical thinking with scalable cloud deployments on platforms like AWS, Vercel, and Render.
             </p>
             
             <div className="about-stats">
