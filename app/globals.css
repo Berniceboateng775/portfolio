@@ -350,13 +350,18 @@ p {
   100% { transform: translate(-20px, 40px) scale(0.95); }
 }
 
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  z-index: 1;
+  width: 100%;
+}
+
 .hero-content {
   text-align: left;
-  z-index: 1;
-  padding: 0 24px;
-  max-width: 800px;
-  margin: 0 auto;
-  width: 100%;
+  max-width: 600px;
 }
 
 .hero-greeting {
@@ -484,6 +489,160 @@ p {
   width: 24px;
   height: 24px;
   color: var(--text-muted);
+}
+
+/* =========================================================
+   TECH GIRL CODING ANIMATION SECTION
+   ========================================================= */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 1s ease 0.6s forwards;
+}
+
+.tech-girl-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  animation: floatGirl 6s ease-in-out infinite;
+}
+
+@keyframes floatGirl {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* The SVG Illustration */
+.coder-girl-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 30px var(--accent-glow));
+}
+
+/* Glowing Animations on the SVG */
+.laptop-screen {
+  animation: screenPulse 4s infinite alternate;
+}
+@keyframes screenPulse {
+  0% { opacity: 0.85; filter: drop-shadow(0 0 10px var(--accent)); }
+  100% { opacity: 1; filter: drop-shadow(0 0 25px var(--accent)); }
+}
+
+.headphone-earcup {
+  animation: neonPulse 2s infinite alternate;
+}
+@keyframes neonPulse {
+  0% { filter: drop-shadow(0 0 5px var(--accent)); }
+  100% { filter: drop-shadow(0 0 15px #ff1e56); }
+}
+
+/* Floating Music Notes */
+.music-note {
+  position: absolute;
+  color: var(--accent);
+  font-size: 1.5rem;
+  opacity: 0;
+  z-index: 10;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.note-1 { top: 25%; left: 60%; animation: floatMusic 3s ease-in infinite 0s; }
+.note-2 { top: 30%; left: 70%; animation: floatMusic 3.5s ease-in infinite 1s; font-size: 1.2rem; color: #ff1e56;}
+.note-3 { top: 20%; left: 55%; animation: floatMusic 4s ease-in infinite 2s; font-size: 1.8rem; }
+
+@keyframes floatMusic {
+  0% { transform: translateY(0) scale(0.8) rotate(-10deg); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-80px) scale(1.2) rotate(20deg); opacity: 0; }
+}
+
+/* Djo - End of Beginning Widget */
+.now-playing-widget {
+  position: absolute;
+  top: 10%;
+  left: -5%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  padding: 12px 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 20;
+  animation: widgetFloat 5s ease-in-out infinite reverse;
+}
+
+@keyframes widgetFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(1deg); }
+}
+
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 20px;
+}
+
+.equalizer .bar {
+  width: 4px;
+  background: var(--gradient-tech);
+  border-radius: 4px;
+  animation: eqBounce 1s ease-in-out infinite;
+}
+
+.bar-1 { height: 10px; animation-delay: 0.1s; }
+.bar-2 { height: 20px; animation-delay: 0.3s; }
+.bar-3 { height: 15px; animation-delay: 0.2s; }
+.bar-4 { height: 8px;  animation-delay: 0.4s; }
+
+@keyframes eqBounce {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1); }
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.artist-name {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 100px;
+  }
+  .hero-content {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-cta {
+    justify-content: center;
+  }
+  .now-playing-widget {
+    left: 10%;
+    top: -5%;
+  }
 }
 
 /* About Section */
