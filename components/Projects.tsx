@@ -57,7 +57,7 @@ const projects = [
     liveUrl: null,
     githubUrl: null,
     status: 'completed',
-    images: ['/images/bin1.png'],
+    images: ['/images/bin1.jpg'],
   },
 
   {
