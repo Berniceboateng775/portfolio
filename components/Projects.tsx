@@ -28,7 +28,7 @@ const projects: Project[] = [
   },
   {
     title: 'Vellichor AI — Emotion & Theme Analysis',
-    description: 'Full-stack literary analysis platform powered by a custom fine-tuned GPT-2 model. It classifies the emotional vibe and subtext of written dialogue into 7 universal categories with 79% accuracy, using context-aware engineering and dropout regularization.',
+    description: 'Full-stack literary analysis platform powered by a custom fine-tuned GPT-2 model. It classifies the emotional vibe and subtext of written dialogue into 7 universal categories, using context-aware engineering and dropout regularization.',
     tech: ['HTML/CSS/JS', 'FastAPI', 'React', 'MongoDB', 'GPT-2', 'Docker'],
     liveUrl: 'https://vellichor-ai.vercel.app',
     githubUrl: null,
