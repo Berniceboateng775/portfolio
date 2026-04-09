@@ -726,40 +726,47 @@ p {
   line-height: 1.7;
 }
 
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* Focus Areas */
+.focus-areas {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
-.stat-item {
-  text-align: center;
-  padding: 16px 8px;
+.focus-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
   border-radius: 6px;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent);
   transition: border-color 0.3s ease;
 }
 
-.stat-item:hover {
+.focus-item:hover {
   border-color: var(--accent);
 }
 
-.stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 4px;
+.focus-icon {
   color: var(--accent);
-  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-.stat-label {
-  color: var(--text-muted);
-  font-size: 0.7rem;
+.focus-title {
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.focus-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0;
 }
 
 .about-education {
