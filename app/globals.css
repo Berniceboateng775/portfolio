@@ -769,8 +769,14 @@ p {
   margin-bottom: 0;
 }
 
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .about-education {
-  padding: 32px;
+  padding: 24px;
 }
 
 .education-label {

@@ -22,7 +22,18 @@ export default function About() {
                 From building intelligent drug-interaction checkers to fine-tuning generative models for natural language analysis, I focus on creating technology that makes a tangible impact. 
                 I thrive on architecting end-to-end solutions, combining deep analytical thinking with scalable cloud deployments on platforms like AWS, Vercel, and Render.
               </p>
-              
+            </div>
+          </ScrollReveal>
+          
+          <ScrollReveal direction="right">
+            <div className="about-right">
+              <div className="about-education glass-card">
+                <p className="education-label">Education</p>
+                <h4 className="education-degree">BSc. Computer Engineering</h4>
+                <p className="education-school">University of Ghana</p>
+                <p className="education-date">Sep 2021 — Nov 2025</p>
+              </div>
+
               <div className="focus-areas">
                 <div className="focus-item">
                   <span className="focus-icon">
@@ -52,15 +63,6 @@ export default function About() {
                   </div>
                 </div>
               </div>
-            </div>
-          </ScrollReveal>
-          
-          <ScrollReveal direction="right">
-            <div className="about-education glass-card">
-              <p className="education-label">Education</p>
-              <h4 className="education-degree">BSc. Computer Engineering</h4>
-              <p className="education-school">University of Ghana</p>
-              <p className="education-date">Sep 2021 — Nov 2025</p>
             </div>
           </ScrollReveal>
         </div>
