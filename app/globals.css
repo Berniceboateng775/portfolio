@@ -169,10 +169,6 @@ p {
   font-family: 'Outfit', sans-serif;
 }
 
-.nav-logo::after {
-  content: '.';
-  color: var(--accent);
-}
 
 .nav-links {
   display: flex;

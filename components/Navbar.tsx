@@ -19,7 +19,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-content">
-        <a href="/" className="nav-logo"></a>
+
 
         {/* Desktop Navigation */}
         <div className="nav-links">
