@@ -19,7 +19,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-content">
-        <a href="/" className="nav-logo">Me</a>
+        <a href="/" className="nav-logo"></a>
 
         {/* Desktop Navigation */}
         <div className="nav-links">
@@ -31,7 +31,7 @@ export default function Navbar() {
         </div>
 
         <div className="nav-right">
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.85rem', borderRadius: '100px' }}>
+          <a href="/Boateng_Bernice_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.85rem', borderRadius: '100px' }}>
             Resume
           </a>
           <button 
@@ -63,7 +63,7 @@ export default function Navbar() {
           <a href="#projects" onClick={closeMenu}>Projects</a>
           <a href="#skills" onClick={closeMenu}>Skills</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" onClick={closeMenu}>
+          <a href="/Boateng_Bernice_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" onClick={closeMenu}>
             Resume
           </a>
         </div>
