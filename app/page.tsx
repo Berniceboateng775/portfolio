@@ -6,10 +6,11 @@ import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { LoadingScreen } from '@/components/LoadingScreen';
 
 export default function Home() {
   return (
-    <>
+    <LoadingScreen>
       <Navbar />
       <main>
         <Hero />
@@ -20,6 +21,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </LoadingScreen>
   );
 }

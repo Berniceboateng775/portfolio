@@ -1,34 +1,20 @@
 :root {
-  /* Cyberpunk / Electric Tech Theme */
-  --bg-primary: #0a0a0c;
-  --bg-secondary: #101014;
-  --bg-tertiary: #16161a;
-  --text-primary: #e4e4e7;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --border-color: rgba(255, 255, 255, 0.07);
-  --glass-bg: rgba(16, 16, 20, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --accent: #00f0ff;
-  --accent-glow: rgba(0, 240, 255, 0.12);
-  --gradient-tech: linear-gradient(135deg, #00f0ff 0%, #6366f1 100%);
+  /* Premium Dark Theme */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0e;
+  --bg-tertiary: #111115;
+  --text-primary: #f0f0f3;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(12, 12, 16, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.12);
+  --gradient-tech: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
 }
 
-/* Light Theme */
-[data-theme="light"] {
-  --bg-primary: #fafafa;
-  --bg-secondary: #f4f4f5;
-  --bg-tertiary: #e4e4e7;
-  --text-primary: #18181b;
-  --text-secondary: #52525b;
-  --text-muted: #a1a1aa;
-  --border-color: rgba(0, 0, 0, 0.08);
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --accent: #0891b2;
-  --accent-glow: rgba(8, 145, 178, 0.12);
-  --gradient-tech: linear-gradient(135deg, #0891b2 0%, #4f46e5 100%);
-}
+/* Dark only — no light theme */
 
 * {
   margin: 0;
@@ -41,38 +27,14 @@ html {
 }
 
 body {
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.7;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
-  background-image: 
-    radial-gradient(var(--border-color) 1px, transparent 1px);
-  background-size: 40px 40px;
 }
 
-/* Futuristic Scanline Overlay */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 240, 255, 0.012) 2px,
-    rgba(0, 240, 255, 0.012) 4px
-  );
-  animation: scanline 8s linear infinite;
-}
-
-@keyframes scanline {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 100px; }
-}
+/* Scanline removed for clean premium look */
 
 @keyframes glowPulse {
   0%, 100% { text-shadow: 0 0 10px var(--accent-glow), 0 0 40px rgba(0, 240, 255, 0.1); }
@@ -96,27 +58,7 @@ p {
   -webkit-hyphens: auto;
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-  background: var(--glass-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-primary);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-}
-
-.theme-toggle:hover {
-  transform: translateY(-2px) rotate(5deg);
-  box-shadow: 0 8px 16px var(--accent-glow);
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* Theme toggle removed — dark only */
 
 /* Glass Card Effect */
 .glass-card {
@@ -145,28 +87,16 @@ p {
 
 /* Section Styling */
 .section {
-  padding: 50px 0;
+  padding: 80px 0;
   position: relative;
 }
 
 .section-title {
-  font-size: 1.6rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  margin-bottom: 32px;
-  position: relative;
-  display: inline-block;
+  margin-bottom: 48px;
   color: var(--text-primary);
-  letter-spacing: -0.5px;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: var(--gradient-tech);
-  margin-top: 8px;
-  border-radius: 2px;
+  letter-spacing: -1px;
 }
 
 /* Animations */
@@ -1335,88 +1265,6 @@ p {
   box-shadow: 0 0 15px var(--accent-glow), 0 0 30px rgba(0, 240, 255, 0.05);
 }
 
-[data-theme="light"] .form-group input:focus,
-[data-theme="light"] .form-group textarea:focus {
-  background: rgba(8, 145, 178, 0.03);
-  box-shadow: 0 0 15px rgba(8, 145, 178, 0.1);
-}
-
-/* Light Mode Overrides */
-[data-theme="light"] .project-card {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="light"] .project-card-image {
-  background: #f4f4f5;
-}
-
-[data-theme="light"] .project-content {
-  background: transparent;
-}
-
-[data-theme="light"] .project-footer {
-  background: rgba(0, 0, 0, 0.02);
-  border-color: rgba(0, 0, 0, 0.06);
-}
-
-[data-theme="light"] .title-completed {
-  color: #18181b;
-}
-
-[data-theme="light"] .tech-tag {
-  background: rgba(0, 0, 0, 0.04);
-  color: #52525b;
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="light"] .circle-link {
-  border-color: rgba(0, 0, 0, 0.1);
-  color: #71717a;
-}
-
-[data-theme="light"] .demo-btn {
-  color: #0891b2;
-  background: rgba(8, 145, 178, 0.08);
-  border-color: rgba(8, 145, 178, 0.25);
-}
-
-[data-theme="light"] .exp-card {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="light"] .exp-card-active {
-  background: linear-gradient(135deg, #ffffff, rgba(8, 145, 178, 0.03));
-}
-
-[data-theme="light"] .about-text {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="light"] .skill-category {
-  background: #ffffff;
-}
-
-[data-theme="light"] .skill-item {
-  background: rgba(0, 0, 0, 0.03);
-  color: #52525b;
-  border-color: rgba(0, 0, 0, 0.06);
-}
-
-[data-theme="light"] .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.92);
-}
-
-[data-theme="light"] body::after {
-  background: none;
-}
-
-[data-theme="light"] .card-placeholder svg {
-  stroke: rgba(0, 0, 0, 0.15);
-}
-
 .form-group textarea {
   resize: vertical;
   min-height: 150px;
@@ -1545,5 +1393,185 @@ p {
   .exp-meta {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+/* =========================================================
+   BADGE — "Open to opportunities" pill
+   ========================================================= */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+  animation: pulse 2s infinite;
+}
+
+/* =========================================================
+   LOADING SCREEN
+   ========================================================= */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.loader-spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  filter: blur(16px);
+  background: rgba(59, 130, 246, 0.1);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.loader-ring {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.loader-ring-outer {
+  inset: 0;
+  border: 1px dashed rgba(59, 130, 246, 0.25);
+  animation: spin 10s linear infinite;
+}
+
+.loader-ring-main {
+  inset: 4px;
+  border: 2px solid transparent;
+  border-top-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+  animation: spin 2s linear infinite;
+}
+
+.loader-ring-reverse {
+  inset: 12px;
+  border: 2px solid transparent;
+  border-bottom-color: #8b5cf6;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+  animation: spin 3s linear infinite reverse;
+}
+
+.loader-ring-inner {
+  inset: 20px;
+  border: 1px solid transparent;
+  border-left-color: rgba(255, 255, 255, 0.4);
+  animation: spin 1s ease-in-out infinite;
+}
+
+.loader-orbit {
+  position: absolute;
+  inset: 0;
+  animation: spin 4s linear infinite;
+}
+
+.loader-orbit-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.8);
+}
+
+.loader-core {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loader-text {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* =========================================================
+   3D ROBOT CONTAINER
+   ========================================================= */
+.robot-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.robot-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border-radius: 24px;
+}
+
+.robot-fallback-pulse {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  animation: pulse 2s infinite;
+}
+
+@media (max-width: 968px) {
+  .robot-container {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .robot-container {
+    height: 280px;
   }
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import InteractiveRobot from './InteractiveRobot';
 
 const roles = [
   'Software Engineer',
@@ -42,8 +43,12 @@ export default function Hero() {
       
       <div className="container hero-container">
         
-        {/* Left Side: Your Text Content */}
+        {/* Left Side: Text Content */}
         <div className="hero-content">
+          <div className="badge">
+            <span className="badge-dot" aria-hidden="true"></span>
+            <span>Open to opportunities</span>
+          </div>
           <p className="hero-greeting">Hi, I am</p>
           <h1 className="hero-name">Bernice Animwaa Boateng</h1>
           <p className="hero-title">
@@ -63,39 +68,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side: PREMIUM Tech Girl Visuals */}
+        {/* Right Side: Interactive 3D Robot */}
         <div className="hero-visual">
-          <div className="tech-girl-wrapper">
-            
-            {/* Floating Music Notes */}
-            <div className="music-note note-1">♪</div>
-            <div className="music-note note-2">♫</div>
-            <div className="music-note note-3">♪</div>
-
-            {/* Gorgeous Glass Frame with High-Quality Aesthetic GIF */}
-            <div className="premium-girl-frame">
-              <img 
-                src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" 
-                alt="Aesthetic Girl Coding" 
-                className="tech-girl-image"
-              />
-            </div>
-
-            {/* Now Playing Glass Widget (Djo - End of Beginning) */}
-            <div className="now-playing-widget">
-              <div className="equalizer">
-                <span className="bar bar-1"></span>
-                <span className="bar bar-2"></span>
-                <span className="bar bar-3"></span>
-                <span className="bar bar-4"></span>
-              </div>
-              <div className="track-info">
-                <span className="track-name">End of Beginning</span>
-                <span className="artist-name">Djo</span>
-              </div>
-            </div>
-            
-          </div>
+          <InteractiveRobot />
         </div>
 
       </div>

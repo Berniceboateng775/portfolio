@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -9,35 +8,32 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const closeMenu = () => setMobileMenuOpen(false);
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="container nav-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <a href="/" className="nav-logo">
-          My Portfolio
-        </a>
+      <div className="container navbar-content">
+        <a href="/" className="nav-logo">Me</a>
 
         {/* Desktop Navigation */}
         <div className="nav-links">
-          <a href="#home">Home</a>
           <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 16px', fontSize: '0.9rem' }}>
-            Resume
-          </a>
-          <ThemeToggle />
         </div>
 
-        {/* Mobile Menu Button  */}
-        <div className="nav-controls" style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="nav-right">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '8px 20px', fontSize: '0.85rem', borderRadius: '100px' }}>
+            Resume
+          </a>
           <button 
             className="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -62,13 +58,12 @@ export default function Navbar() {
       {/* Mobile Navigation */}
       <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-menu-container">
-          <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
-          <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
-          <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills</a>
-          <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
-          <a href="#experience" onClick={() => setMobileMenuOpen(false)}>Experience</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#experience" onClick={closeMenu}>Experience</a>
+          <a href="#projects" onClick={closeMenu}>Projects</a>
+          <a href="#skills" onClick={closeMenu}>Skills</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" onClick={closeMenu}>
             Resume
           </a>
         </div>

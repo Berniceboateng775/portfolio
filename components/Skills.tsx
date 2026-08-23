@@ -5,27 +5,27 @@ import ScrollReveal from './ScrollReveal';
 const skillCategories = [
   {
     title: 'Languages',
-    icon: '{ }',
+    icon: '</>',
     skills: ['Python', 'JavaScript', 'TypeScript', 'MATLAB', 'HTML/CSS', 'SQL'],
   },
   {
     title: 'Frameworks & Libraries',
-    icon: '⚡',
+    icon: 'Fx',
     skills: ['React.js', 'Node.js', 'Express', 'Flask', 'Django', 'TensorFlow'],
   },
   {
     title: 'Databases',
-    icon: '◉',
+    icon: 'DB',
     skills: ['MongoDB', 'PostgreSQL', 'Supabase'],
   },
   {
     title: 'Cloud & DevOps',
-    icon: '☁',
+    icon: '>>',
     skills: ['AWS EC2', 'AWS Elastic Beanstalk', 'Git', 'Docker', 'Vercel', 'Render', 'Hugging Face'],
   },
   {
     title: 'Tools & Other',
-    icon: '⚙',
+    icon: './.',
     skills: ['Figma', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
   },
 ];
