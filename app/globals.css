@@ -14,6 +14,20 @@
   --gradient-tech: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
 }
 
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.2);
+}
+
 /* Dark only — no light theme */
 
 * {
@@ -175,6 +189,7 @@ p {
   gap: 40px;
   list-style: none;
   align-items: center;
+  margin: 0 auto;
 }
 
 .nav-links a {
@@ -218,6 +233,7 @@ p {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-left: auto;
 }
 
 /* Mobile Vertical Dropdown Menu */
