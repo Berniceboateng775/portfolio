@@ -32,7 +32,7 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section className="section" id="skills" style={{ background: 'var(--bg-secondary)' }}>
+    <section className="section" id="skills">
       <div className="container">
         <ScrollReveal>
           <h2 className="section-title">Technical Skills</h2>

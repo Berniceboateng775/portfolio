@@ -13,14 +13,18 @@ export default function About() {
         <div className="about-content">
           <ScrollReveal direction="left">
             <div className="about-text">
-              <h3>Building Technology That Matters</h3>
+              <h3>What I do</h3>
               <p>
-                I&apos;m a passionate Software Engineer and Data Analyst who loves transforming complex datasets into powerful, user-friendly applications. 
-                My expertise bridges the gap between machine learning models and robust full-stack web development.
+                I&apos;m a data analyst and software engineer. I work across the whole
+                pipeline &mdash; cleaning and exploring data, engineering features,
+                training and evaluating models, then shipping them inside <b>full-stack
+                apps people actually use</b>.
               </p>
               <p>
-                From building intelligent drug-interaction checkers to fine-tuning generative models for natural language analysis, I focus on creating technology that makes a tangible impact. 
-                I thrive on architecting end-to-end solutions, combining deep analytical thinking with scalable cloud deployments on platforms like AWS, Vercel, and Render.
+                Recent work: a drug-interaction checker backed by a custom-trained model,
+                a fine-tuned GPT-2 service for text emotion analysis, and a churn model
+                deployed as a containerized API on AWS. I care about models that <b>hold
+                up outside the notebook</b>.
               </p>
             </div>
           </ScrollReveal>

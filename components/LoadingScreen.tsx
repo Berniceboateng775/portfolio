@@ -8,7 +8,7 @@ export function LoadingScreen({ children }: { children: React.ReactNode }) {
   const [loadingText, setLoadingText] = useState('Initializing');
 
   useEffect(() => {
-    const states = ['Loading...', 'Building Portfolio...', 'Almost There...'];
+    const states = ['Loading dataset', 'Fitting model', 'Rendering'];
     let i = 0;
     const interval = setInterval(() => {
       i = (i + 1) % states.length;
@@ -38,34 +38,23 @@ export function LoadingScreen({ children }: { children: React.ReactNode }) {
             className="loading-screen"
           >
             <div className="loader-content">
-              {/* Spinner */}
-              <div className="loader-spinner">
-                {/* Base Glow */}
-                <div className="loader-glow" />
-                {/* Outer Dashed Ring */}
-                <div className="loader-ring loader-ring-outer" />
-                {/* Main Arc */}
-                <div className="loader-ring loader-ring-main" />
-                {/* Reverse Arc */}
-                <div className="loader-ring loader-ring-reverse" />
-                {/* Inner Fast Ring */}
-                <div className="loader-ring loader-ring-inner" />
-                {/* Orbital Dot */}
-                <div className="loader-orbit">
-                  <div className="loader-orbit-dot" />
-                </div>
-                {/* Center Core */}
-                <div className="loader-core" />
+              {/* Building bar chart */}
+              <div className="loader-bars">
+                <span className="loader-bar" />
+                <span className="loader-bar" />
+                <span className="loader-bar" />
+                <span className="loader-bar" />
+                <span className="loader-bar" />
               </div>
+              <div className="loader-baseline" />
 
-              {/* Text */}
               <motion.p
                 key={loadingText}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="loader-text"
               >
-                {loadingText}
+                {loadingText}<b>_</b>
               </motion.p>
             </div>
           </motion.div>
