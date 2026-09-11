@@ -15,7 +15,7 @@ export default function About() {
             <div className="about-text">
               <h3>What I do</h3>
               <p>
-                I&apos;m a data analyst and software engineer. I work across the whole
+                I&apos;m a data analyst and software developer. I work across the whole
                 pipeline &mdash; cleaning and exploring data, engineering features,
                 training and evaluating models, then shipping them inside <b>full-stack
                 apps people actually use</b>.
@@ -59,11 +59,11 @@ export default function About() {
                 </div>
                 <div className="focus-item">
                   <span className="focus-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 2 5-6"/></svg>
                   </span>
                   <div>
-                    <h4 className="focus-title">Data Engineering</h4>
-                    <p className="focus-desc">Data pipelines, analysis, and visualization to drive real business decisions</p>
+                    <h4 className="focus-title">Data Analysis & Visualization</h4>
+                    <p className="focus-desc">Exploratory analysis, dashboards, and clear charts that turn raw numbers into decisions people can act on</p>
                   </div>
                 </div>
               </div>

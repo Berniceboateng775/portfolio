@@ -2,22 +2,25 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bernice Animwaa Boateng | Software Engineer & Data Analyst",
+  title: "Bernice Animwaa Boateng | Data Analyst & Software Developer",
   description:
-    "Portfolio of Bernice Animwaa Boateng - Software Engineer, Data Analyst, and Machine Learning enthusiast. Building innovative solutions with Python, React, and modern web technologies.",
+    "Portfolio of Bernice Animwaa Boateng — data analyst and software developer. I turn messy data into clear answers and build the full-stack apps that deliver them, with Python, SQL, Excel, and React.",
   keywords: [
-    "Software Engineer",
     "Data Analyst",
-    "Machine Learning",
+    "Software Developer",
+    "Data Analysis",
     "Python",
+    "SQL",
+    "Power BI",
+    "Excel",
     "React",
     "Portfolio",
   ],
   authors: [{ name: "Bernice Animwaa Boateng" }],
   openGraph: {
-    title: "Bernice Animwaa Boateng | Software Engineer",
+    title: "Bernice Animwaa Boateng | Data Analyst & Software Developer",
     description:
-      "Software Engineer, Data Analyst, and ML enthusiast building innovative solutions.",
+      "Data analyst and software developer turning data into decisions and building the apps that act on them.",
     type: "website",
   },
   icons: {

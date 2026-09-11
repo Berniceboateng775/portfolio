@@ -2,11 +2,18 @@
 
 import ScrollReveal from './ScrollReveal';
 
-const skillCategories = [
+type Skill = string | { name: string; learning?: boolean };
+
+const skillCategories: { title: string; icon: string; skills: Skill[] }[] = [
   {
     title: 'Languages',
     icon: '</>',
-    skills: ['Python', 'JavaScript', 'TypeScript', 'MATLAB', 'HTML/CSS', 'SQL'],
+    skills: ['Python', 'SQL', 'JavaScript', 'TypeScript', 'MATLAB', 'HTML/CSS'],
+  },
+  {
+    title: 'Data & Analytics',
+    icon: '#',
+    skills: ['Excel', 'Power BI', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
   },
   {
     title: 'Frameworks & Libraries',
@@ -19,14 +26,9 @@ const skillCategories = [
     skills: ['MongoDB', 'PostgreSQL', 'Supabase'],
   },
   {
-    title: 'Cloud & DevOps',
+    title: 'Tools & Cloud',
     icon: '>>',
-    skills: ['AWS EC2', 'AWS Elastic Beanstalk', 'Git', 'Docker', 'Vercel', 'Render', 'Hugging Face'],
-  },
-  {
-    title: 'Tools & Other',
-    icon: './.',
-    skills: ['Figma', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
+    skills: ['Git', 'Docker', 'Vercel', 'Render', 'Hugging Face', 'Figma'],
   },
 ];
 
@@ -37,7 +39,7 @@ export default function Skills() {
         <ScrollReveal>
           <h2 className="section-title">Technical Skills</h2>
         </ScrollReveal>
-        
+
         <div className="skills-container">
           {skillCategories.map((category, index) => (
             <ScrollReveal key={index} delay={index * 100} direction="up">
@@ -47,9 +49,16 @@ export default function Skills() {
                   <h3 className="skill-category-title">{category.title}</h3>
                 </div>
                 <div className="skill-list">
-                  {category.skills.map((skill, i) => (
-                    <span key={i} className="skill-item">{skill}</span>
-                  ))}
+                  {category.skills.map((skill, i) => {
+                    const name = typeof skill === 'string' ? skill : skill.name;
+                    const learning = typeof skill !== 'string' && skill.learning;
+                    return (
+                      <span key={i} className={`skill-item${learning ? ' skill-item-learning' : ''}`}>
+                        {name}
+                        {learning && <em className="skill-flag">learning</em>}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             </ScrollReveal>

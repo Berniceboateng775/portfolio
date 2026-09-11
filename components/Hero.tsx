@@ -3,13 +3,7 @@
 import React from 'react';
 import HeroViz from './HeroViz';
 
-const stats = [
-  { num: '82%', label: 'Model accuracy' },
-  { num: '0.86', label: 'ROC-AUC' },
-  { num: '6', label: 'Projects shipped' },
-];
-
-const tags = ['Python', 'SQL', 'TensorFlow', 'React', 'Pandas', 'AWS'];
+const tags = ['Python', 'SQL', 'Excel', 'Power BI', 'Pandas', 'React'];
 
 export default function Hero() {
   return (
@@ -18,7 +12,7 @@ export default function Hero() {
 
         {/* Left: text */}
         <div className="hero-content">
-          <p className="hero-eyebrow">Data Analyst · Data Scientist · Accra, GH</p>
+          <p className="hero-eyebrow">Data Analyst · Software Developer · Accra, GH</p>
 
           <h1 className="hero-name">
             Bernice Animwaa<br />
@@ -26,8 +20,8 @@ export default function Hero() {
           </h1>
 
           <p className="hero-tagline">
-            I find the signal in messy data, <b>train the models</b> that act on it,
-            and <b>build the full-stack apps</b> that put them in people&apos;s hands.
+            I dig through messy data to find what matters, then <b>build the
+            apps</b> that put those answers in front of the people who need them.
           </p>
 
           <div className="hero-tags">
@@ -45,32 +39,11 @@ export default function Hero() {
             </a>
             <a href="#contact" className="btn btn-secondary">Get in Touch</a>
           </div>
-
-          <div className="hero-stats">
-            {stats.map((s) => (
-              <div key={s.label} className="stat">
-                <div className="stat-num">{s.num}</div>
-                <div className="stat-label">{s.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Right: coded data-viz figure */}
+        {/* Right: coded, self-cycling data-viz figure */}
         <div className="hero-figure-wrap">
-          <div className="hero-figure">
-            <div className="figure-head">
-              <span className="figure-title">fig.01 — model fit</span>
-              <span className="figure-dots"><span /><span /><span /></span>
-            </div>
-            <div className="figure-body">
-              <HeroViz />
-            </div>
-            <div className="figure-foot">
-              <span>n = 19 · linear regression</span>
-              <span className="r2">R² = 0.87</span>
-            </div>
-          </div>
+          <HeroViz />
         </div>
 
       </div>
