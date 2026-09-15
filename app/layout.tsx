@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import DataField from "@/components/DataField";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "Bernice Animwaa Boateng | Data Analyst & Software Developer",
@@ -47,7 +49,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <DataField />
+        <ScrollProgress />
+        {children}
+      </body>
     </html>
   );
 }

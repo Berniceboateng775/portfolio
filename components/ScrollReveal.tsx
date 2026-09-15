@@ -9,11 +9,11 @@ interface ScrollRevealProps {
   className?: string;
 }
 
-export default function ScrollReveal({ 
-  children, 
-  direction = 'up', 
+export default function ScrollReveal({
+  children,
+  direction = 'up',
   delay = 0,
-  className = '' 
+  className = '',
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -26,7 +26,7 @@ export default function ScrollReveal({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -35,11 +35,11 @@ export default function ScrollReveal({
 
   const getTransform = () => {
     switch (direction) {
-      case 'up': return 'translateY(60px)';
-      case 'left': return 'translateX(-60px)';
-      case 'right': return 'translateX(60px)';
-      case 'fade': return 'translateY(20px)';
-      default: return 'translateY(60px)';
+      case 'up':    return 'translateY(60px) scale(0.985)';
+      case 'left':  return 'translateX(-60px) scale(0.985)';
+      case 'right': return 'translateX(60px) scale(0.985)';
+      case 'fade':  return 'translateY(20px) scale(0.985)';
+      default:      return 'translateY(60px) scale(0.985)';
     }
   };
 
@@ -48,10 +48,11 @@ export default function ScrollReveal({
       ref={ref}
       className={className}
       style={{
-        transform: isVisible ? 'translate(0)' : getTransform(),
+        transform: isVisible ? 'translate(0) scale(1)' : getTransform(),
         opacity: isVisible ? 1 : 0,
-        transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-        willChange: 'transform, opacity',
+        filter: isVisible ? 'blur(0px)' : 'blur(6px)',
+        transition: `all 0.75s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        willChange: 'transform, opacity, filter',
       }}
     >
       {children}

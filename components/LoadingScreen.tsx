@@ -38,15 +38,24 @@ export function LoadingScreen({ children }: { children: React.ReactNode }) {
             className="loading-screen"
           >
             <div className="loader-content">
-              {/* Building bar chart */}
-              <div className="loader-bars">
-                <span className="loader-bar" />
-                <span className="loader-bar" />
-                <span className="loader-bar" />
-                <span className="loader-bar" />
-                <span className="loader-bar" />
+              {/* Mini "model fitting" plot: points pop in, then a line fits them */}
+              <div className="loader-plot">
+                <svg viewBox="0 0 200 120" fill="none" aria-hidden="true">
+                  <line className="lp-axis" x1="26" y1="14" x2="26" y2="100" />
+                  <line className="lp-axis" x1="26" y1="100" x2="182" y2="100" />
+                  <line className="lp-fit" x1="40" y1="84" x2="166" y2="32" />
+                  <g className="lp-pts">
+                    <circle cx="44" cy="86" r="3.4" />
+                    <circle cx="62" cy="76" r="3.4" />
+                    <circle cx="80" cy="81" r="3.4" />
+                    <circle cx="98" cy="64" r="3.4" />
+                    <circle cx="118" cy="56" r="3.4" />
+                    <circle cx="140" cy="44" r="3.4" />
+                    <circle cx="160" cy="34" r="3.4" />
+                  </g>
+                  <circle className="lp-head" cx="166" cy="32" r="4" />
+                </svg>
               </div>
-              <div className="loader-baseline" />
 
               <motion.p
                 key={loadingText}
