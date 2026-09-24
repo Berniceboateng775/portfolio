@@ -10,7 +10,10 @@ const experiences = [
     period: 'Dec 2025 — Present',
     type: 'current',
     points: [
-      'Built Vellichor AI, a full-stack literary analysis platform powered by a custom fine-tuned GPT-2 model for emotion and subtext detection in text, deployed via FastAPI and Docker',
+      'SEMLER: Assisted senior data analysts on a project predicting myocardial strain from PPG signals, using XGBoost regression with Leave-One-Clinic-Out validation across clinics',
+      'Worked on feature extraction, recursive feature elimination, and loss function tuning, and built pipeline scripts for leakage-safe hyperparameter tuning',
+      'AppWork VoiceAI: Assisted on an AI system that detects distress in inbound calls for a property management company by labelling data from 911 calls and building a pipeline that combines audio and text signals',
+      'Training: Before working on projects, completed hands-on training covering end-to-end ML workflows —',
       'Developed an end-to-end customer churn prediction model using Logistic Regression, achieving 82% accuracy and 0.86 ROC AUC score by engineering features from 20+ customer attributes',
       'Deployed ML model as a RESTful Flask API containerized with Docker, implementing feature alignment logic and deploying to AWS Elastic Beanstalk for scalable cloud serving',
       'Built regression models for car price prediction and laptop price analysis using Python (Pandas, NumPy, Scikit-learn), performing comprehensive EDA and feature engineering',
