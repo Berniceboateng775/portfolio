@@ -2,7 +2,18 @@
 
 import ScrollReveal from './ScrollReveal';
 
-const experiences = [
+type ExperiencePoint = string | { text: string; subPoints: string[] };
+
+interface ExperienceEntry {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  type: string;
+  points: ExperiencePoint[];
+}
+
+const experiences: ExperienceEntry[] = [
   {
     role: 'Software Engineer and Data Analyst',
     company: 'Really Great Tech',
@@ -13,11 +24,15 @@ const experiences = [
       'SEMLER: Assisted senior data analysts on a project predicting myocardial strain from PPG signals, using XGBoost regression with Leave-One-Clinic-Out validation across clinics',
       'Worked on feature extraction, recursive feature elimination, and loss function tuning, and built pipeline scripts for leakage-safe hyperparameter tuning',
       'AppWork VoiceAI: Assisted on an AI system that detects distress in inbound calls for a property management company by labelling data from 911 calls and building a pipeline that combines audio and text signals',
-      'Training: Before working on projects, completed hands-on training covering end-to-end ML workflows —',
-      'Developed an end-to-end customer churn prediction model using Logistic Regression, achieving 82% accuracy and 0.86 ROC AUC score by engineering features from 20+ customer attributes',
-      'Deployed ML model as a RESTful Flask API containerized with Docker, implementing feature alignment logic and deploying to AWS Elastic Beanstalk for scalable cloud serving',
-      'Built regression models for car price prediction and laptop price analysis using Python (Pandas, NumPy, Scikit-learn), performing comprehensive EDA and feature engineering',
-      'Created interactive data visualizations using Matplotlib and Seaborn to analyze customer behavior patterns, identifying key churn drivers that informed business recommendations',
+      {
+        text: 'Training: Before working on projects, completed hands-on training covering end-to-end ML workflows',
+        subPoints: [
+          'Developed an end-to-end customer churn prediction model using Logistic Regression, achieving 82% accuracy and 0.86 ROC AUC score by engineering features from 20+ customer attributes',
+          'Deployed ML model as a RESTful Flask API containerized with Docker, implementing feature alignment logic and deploying to AWS Elastic Beanstalk for scalable cloud serving',
+          'Built regression models for car price prediction and laptop price analysis using Python (Pandas, NumPy, Scikit-learn), performing comprehensive EDA and feature engineering',
+          'Created interactive data visualizations using Matplotlib and Seaborn to analyze customer behavior patterns, identifying key churn drivers that informed business recommendations',
+        ],
+      },
     ],
   },
   {
@@ -88,9 +103,21 @@ export default function Experience() {
                 
                 <div className="exp-points">
                   {exp.points.map((point, i) => (
-                    <div key={i} className="exp-point">
-                      <span className="exp-point-arrow">▹</span>
-                      <span>{point}</span>
+                    <div key={i}>
+                      <div className="exp-point">
+                        <span className="exp-point-arrow">▹</span>
+                        <span>{typeof point === 'string' ? point : point.text}</span>
+                      </div>
+                      {typeof point !== 'string' && point.subPoints && (
+                        <div className="exp-subpoints">
+                          {point.subPoints.map((sub, j) => (
+                            <div key={j} className="exp-subpoint">
+                              <span className="exp-subpoint-arrow">▸</span>
+                              <span>{sub}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
