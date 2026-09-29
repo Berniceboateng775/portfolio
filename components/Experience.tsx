@@ -21,7 +21,7 @@ const experiences: ExperienceEntry[] = [
     period: 'Dec 2025 — Present',
     type: 'current',
     points: [
-      'SEMLER: Assisted senior data analysts on a project predicting myocardial strain from PPG signals, using XGBoost regression with Leave-One-Clinic-Out validation across clinics',
+      'SEMLER: Helped senior data analysts on a project predicting myocardial strain from PPG signals, using XGBoost regression with Leave-One-Clinic-Out validation across clinics',
       'Worked on feature extraction, recursive feature elimination, and loss function tuning, and built pipeline scripts for leakage-safe hyperparameter tuning',
       'AppWork VoiceAI: Assisted on an AI system that detects distress in inbound calls for a property management company by labelling data from 911 calls and building a pipeline that combines audio and text signals',
       {
@@ -42,7 +42,7 @@ const experiences: ExperienceEntry[] = [
     period: 'Apr 2025 — Aug 2025',
     type: 'past',
     points: [
-      'Assisted with maintaining and updating the hospital\'s electronic health record (EHR) systems',
+      'Helped with maintaining and updating the hospital\'s electronic health record (EHR) systems',
       'Collaborated with the IT team on digital transformation initiatives and internal reporting tools',
       'Provided technical support for internal software and hardware issues',
     ],
