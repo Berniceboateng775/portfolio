@@ -46,7 +46,7 @@ const AREA_PATH =
 
 const CHARTS = [
   { kind: 'scatter', title: 'fig.01 — model fit', foot: 'n = 14 · linear regression', stat: 'R² = 0.87', live: false },
-  { kind: 'bars', title: 'fig.02 — feature weights', foot: 'churn model · top drivers', stat: '6 features', live: false },
+  { kind: 'bars', title: 'fig.02 — feature weights', foot: 'PPG biomarkers · top features', stat: '6 features', live: false },
   { kind: 'line', title: 'fig.03 — signal / time', foot: 'rolling window · 12 steps', stat: 'live', live: true },
 ] as const;
 

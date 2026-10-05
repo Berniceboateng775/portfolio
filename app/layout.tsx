@@ -4,25 +4,26 @@ import DataField from "@/components/DataField";
 import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
-  title: "Bernice Animwaa Boateng | Data Analyst & Software Developer",
+  title: "Bernice Animwaa Boateng | AI/ML Engineer & Software Developer",
   description:
-    "Portfolio of Bernice Animwaa Boateng — data analyst and software developer. I turn messy data into clear answers and build the full-stack apps that deliver them, with Python, SQL, Excel, and React.",
+    "Portfolio of Bernice Animwaa Boateng — AI/ML engineer and software developer. Building clinical ML pipelines, intelligent signal processing systems, and full-stack AI applications with Python, PyTorch, XGBoost, and React.",
   keywords: [
-    "Data Analyst",
+    "AI/ML Engineer",
     "Software Developer",
-    "Data Analysis",
+    "Machine Learning",
+    "Deep Learning",
+    "PyTorch",
+    "XGBoost",
     "Python",
-    "SQL",
-    "Power BI",
-    "Excel",
+    "FastAPI",
     "React",
     "Portfolio",
   ],
   authors: [{ name: "Bernice Animwaa Boateng" }],
   openGraph: {
-    title: "Bernice Animwaa Boateng | Data Analyst & Software Developer",
+    title: "Bernice Animwaa Boateng | AI/ML Engineer & Software Developer",
     description:
-      "Data analyst and software developer turning data into decisions and building the apps that act on them.",
+      "AI/ML engineer and software developer building clinical ML pipelines, intelligent signal processing systems, and full-stack AI applications.",
     type: "website",
   },
   icons: {

@@ -15,22 +15,26 @@ interface ExperienceEntry {
 
 const experiences: ExperienceEntry[] = [
   {
-    role: 'Software Engineer and Data Analyst',
+    role: 'AI/ML Engineer and Data Analyst (National Service)',
     company: 'Really Great Tech',
     location: 'Accra, Ghana',
     period: 'Dec 2025 — Present',
     type: 'current',
     points: [
-      'SEMLER: Helped senior data analysts on a project predicting myocardial strain from PPG signals, using XGBoost regression with Leave-One-Clinic-Out validation across clinics',
-      'Worked on feature extraction, recursive feature elimination, and loss function tuning, and built pipeline scripts for leakage-safe hyperparameter tuning',
-      'AppWork VoiceAI: Assisted on an AI system that detects distress in inbound calls for a property management company by labelling data from 911 calls and building a pipeline that combines audio and text signals',
       {
-        text: 'Training: Before working on projects, completed hands-on training covering end-to-end ML workflows',
+        text: 'Semler Scientific — Peripheral Artery Disease (PAD) Severity:',
         subPoints: [
-          'Developed an end-to-end customer churn prediction model using Logistic Regression, achieving 82% accuracy and 0.86 ROC AUC score by engineering features from 20+ customer attributes',
-          'Deployed ML model as a RESTful Flask API containerized with Docker, implementing feature alignment logic and deploying to AWS Elastic Beanstalk for scalable cloud serving',
-          'Built regression models for car price prediction and laptop price analysis using Python (Pandas, NumPy, Scikit-learn), performing comprehensive EDA and feature engineering',
-          'Created interactive data visualizations using Matplotlib and Seaborn to analyze customer behavior patterns, identifying key churn drivers that informed business recommendations',
+          'Built and benchmarked XGBoost and PyTorch models that classify peripheral artery disease severity from arterial PPG waveforms, validated with 6-fold Leave-One-Clinic-Out across 6 clinics (346+ limbs) so each clinic is tested as unseen data.',
+          'Engineered and evaluated 111 pulse-waveform biomarkers (pyPPG), used Kernel PCA and metaheuristic feature selection (zoofs) to find compact feature sets, and calibrated thresholds on training folds only, reaching about 80% sensitivity and 79% specificity (ROC AUC 0.82) on unseen clinics.',
+          'Built interactive dashboards showing performance sweeps, confusion matrices, 95% confidence intervals and per-clinic results.',
+          'Earlier on Semler, worked on XGBoost regression predicting myocardial strain from PPG, with feature extraction, recursive feature elimination and leakage-safe hyperparameter tuning scripts.',
+        ],
+      },
+      {
+        text: 'AppWork VoiceAI — Inbound Call Distress Detection:',
+        subPoints: [
+          'Helped build an AI system for a property management company that flags distress in inbound calls.',
+          'Benchmarked Hugging Face speech emotion models, labelled distress ground truth from a 911 calls dataset, and worked on a pipeline that fuses audio and text signals.',
         ],
       },
     ],
@@ -42,9 +46,9 @@ const experiences: ExperienceEntry[] = [
     period: 'Apr 2025 — Aug 2025',
     type: 'past',
     points: [
-      'Helped with maintaining and updating the hospital\'s electronic health record (EHR) systems',
-      'Collaborated with the IT team on digital transformation initiatives and internal reporting tools',
-      'Provided technical support for internal software and hardware issues',
+      'Helped maintain and update the hospital’s electronic health record (EHR) systems',
+      'Worked with the IT team on digital transformation projects and internal reporting tools',
+      'Handled technical support for software and hardware issues',
     ],
   },
 ];
@@ -106,7 +110,7 @@ export default function Experience() {
                     <div key={i}>
                       <div className="exp-point">
                         <span className="exp-point-arrow">▹</span>
-                        <span>{typeof point === 'string' ? point : point.text}</span>
+                        <span>{typeof point === 'string' ? point : <strong>{point.text}</strong>}</span>
                       </div>
                       {typeof point !== 'string' && point.subPoints && (
                         <div className="exp-subpoints">

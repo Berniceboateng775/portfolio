@@ -17,8 +17,8 @@ interface Project {
 const projects: Project[] = [
   {
     title: 'MedMate DDI — Drug Interaction Checker',
-    description: 'Full-stack healthcare application for detecting drug-drug interactions using custom-trained ML models. Features transformer-based interaction prediction, AI-driven drug substitution recommendations, and secure authentication with JWT and WebAuthn/Passkeys.',
-    tech: ['Python', 'React', 'Django', 'TensorFlow', 'PostgreSQL'],
+    description: 'Full-stack healthcare application detecting drug-drug interactions using DrugBank and PubChem data. Built severity classification models (XGBoost & Random Forest) and led the transformer model generating plain-language interaction descriptions. Deployed with Django REST API and React.',
+    tech: ['Python', 'React', 'Django', 'Transformers', 'XGBoost', 'PostgreSQL'],
     liveUrl: 'https://medmate-ddi.vercel.app',
     githubUrl: null,
     mlUrl: 'https://huggingface.co/spaces/Bernice775/drug-interaction-prediction',
@@ -28,8 +28,8 @@ const projects: Project[] = [
   },
   {
     title: 'Vellichor AI — Emotion & Theme Analysis',
-    description: 'Full-stack literary analysis platform powered by a custom fine-tuned GPT-2 model. It classifies the emotional vibe and subtext of written dialogue into 7 universal categories, using context-aware engineering and dropout regularization.',
-    tech: ['HTML/CSS/JS', 'FastAPI', 'React', 'MongoDB', 'GPT-2', 'Docker'],
+    description: 'End-to-end fine-tuned GPT-2 model classifying emotion and subtext of written dialogue into 7 categories, served via a FastAPI backend. Features context-aware engineering and dropout to capture nuanced subtext instead of surface keywords.',
+    tech: ['FastAPI', 'GPT-2', 'Hugging Face', 'React', 'Docker'],
     liveUrl: 'https://vellichor-ai.vercel.app',
     githubUrl: null,
     mlUrl: 'https://vellichor.onrender.com',

@@ -6,29 +6,29 @@ type Skill = string | { name: string; learning?: boolean };
 
 const skillCategories: { title: string; icon: string; skills: Skill[] }[] = [
   {
+    title: 'AI & Machine Learning',
+    icon: 'AI',
+    skills: ['PyTorch', 'TensorFlow', 'Hugging Face', 'XGBoost', 'LightGBM', 'Scikit-learn', 'GPT-2 Fine-Tuning'],
+  },
+  {
     title: 'Languages',
     icon: '</>',
-    skills: ['Python', 'SQL', 'JavaScript', 'TypeScript', 'MATLAB', 'HTML/CSS'],
+    skills: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'HTML/CSS'],
   },
   {
-    title: 'Data & Analytics',
-    icon: '#',
-    skills: ['Excel', 'Power BI', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
-  },
-  {
-    title: 'Frameworks & Libraries',
+    title: 'Frameworks & APIs',
     icon: 'Fx',
-    skills: ['React.js', 'Node.js', 'Express', 'Flask', 'Django', 'TensorFlow'],
+    skills: ['FastAPI', 'Django', 'Flask', 'React.js', 'Node.js', 'Express'],
   },
   {
-    title: 'Databases',
+    title: 'Databases & Storage',
     icon: 'DB',
-    skills: ['MongoDB', 'PostgreSQL', 'Supabase'],
+    skills: ['PostgreSQL', 'MongoDB', 'Supabase'],
   },
   {
     title: 'Tools & Cloud',
     icon: '>>',
-    skills: ['Git', 'Docker', 'Vercel', 'Render', 'Hugging Face', 'Figma'],
+    skills: ['Docker', 'Git', 'Vercel', 'Render', 'Postman', 'Figma'],
   },
 ];
 

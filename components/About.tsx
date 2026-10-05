@@ -15,16 +15,16 @@ export default function About() {
             <div className="about-text">
               <h3>What I do</h3>
               <p>
-                I&apos;m a data analyst and software developer. I work across the whole
-                pipeline &mdash; cleaning and exploring data, engineering features,
-                training and evaluating models, then shipping them inside <b>full-stack
-                apps people actually use</b>.
+                I&apos;m an AI/ML engineer and software developer with a degree in computer
+                engineering and hands-on machine learning experience in healthcare. I work across
+                the entire lifecycle &mdash; from extracting clinical signal biomarkers and
+                training robust models to shipping them inside <b>full-stack apps with live APIs</b>.
               </p>
               <p>
-                Recent work: a drug-interaction checker backed by a custom-trained model,
-                a fine-tuned GPT-2 service for text emotion analysis, and a churn model
-                deployed as a containerized API on AWS. I care about models that <b>hold
-                up outside the notebook</b>.
+                Recent work: clinical ML pipelines for PAD severity classification from arterial
+                PPG waveforms at Really Great Tech, speech emotion distress detection for voice AI,
+                a drug-interaction checker with transformer explanations, and fine-tuned GPT-2 services.
+                I care about models that <b>hold up outside the notebook</b>.
               </p>
             </div>
           </ScrollReveal>
@@ -45,7 +45,7 @@ export default function About() {
                   </span>
                   <div>
                     <h4 className="focus-title">Full-Stack Development</h4>
-                    <p className="focus-desc">End-to-end web applications with React, Django, Node.js, and cloud deployment</p>
+                    <p className="focus-desc">End-to-end web applications with React, FastAPI, Django, Node.js, and cloud deployment</p>
                   </div>
                 </div>
                 <div className="focus-item">
@@ -54,7 +54,7 @@ export default function About() {
                   </span>
                   <div>
                     <h4 className="focus-title">Machine Learning & AI</h4>
-                    <p className="focus-desc">Custom model training, fine-tuning transformers, and intelligent prediction systems</p>
+                    <p className="focus-desc">Clinical signal ML pipelines, transformer fine-tuning, speech & NLP models, and predictive systems</p>
                   </div>
                 </div>
                 <div className="focus-item">
@@ -62,8 +62,8 @@ export default function About() {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 2 5-6"/></svg>
                   </span>
                   <div>
-                    <h4 className="focus-title">Data Analysis & Visualization</h4>
-                    <p className="focus-desc">Exploratory analysis, dashboards, and clear charts that turn raw numbers into decisions people can act on</p>
+                    <h4 className="focus-title">ML Pipelines & Signal Data</h4>
+                    <p className="focus-desc">Waveform biomarkers (pyPPG), leakage-safe cross-validation, evaluation dashboards, and API serving</p>
                   </div>
                 </div>
               </div>

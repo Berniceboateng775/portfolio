@@ -3,7 +3,7 @@
 import React from 'react';
 import HeroViz from './HeroViz';
 
-const tags = ['Python', 'SQL', 'Excel', 'Power BI', 'Pandas', 'React'];
+const tags = ['Python', 'PyTorch', 'XGBoost', 'FastAPI', 'React', 'Docker'];
 
 export default function Hero() {
   return (
@@ -12,7 +12,7 @@ export default function Hero() {
 
         {/* Left: text */}
         <div className="hero-content">
-          <p className="hero-eyebrow">Data Analyst · Software Developer · Accra, GH</p>
+          <p className="hero-eyebrow">AI/ML Engineer · Software Developer · Accra, GH</p>
 
           <h1 className="hero-name">
             Bernice Animwaa<br />
@@ -20,8 +20,8 @@ export default function Hero() {
           </h1>
 
           <p className="hero-tagline">
-            I dig through messy data to find what matters, then <b>build the
-            apps</b> that put those answers in front of the people who need them.
+            I build production ML pipelines for complex signal data, then <b>ship
+            the full-stack apps</b> and APIs that put intelligent models into production.
           </p>
 
           <div className="hero-tags">
