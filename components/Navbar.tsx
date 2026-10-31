@@ -28,8 +28,8 @@ export default function Navbar() {
       <div className="container navbar-content">
 
         <a href="#home" className="nav-logo" aria-label="Bernice Boateng — home">
-          <span className="nav-logo-mark">BB</span>
-          <span className="nav-logo-text">Boateng</span>
+          <span className="nav-logo-mark">b</span>
+          <span className="nav-logo-text">Bernice <em>Boateng</em></span>
         </a>
 
         <div className="nav-links">

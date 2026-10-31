@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -50,9 +51,7 @@ export default function Contact() {
   return (
     <section className="section" id="contact">
       <div className="container">
-        <ScrollReveal>
-          <h2 className="section-title">Get In Touch</h2>
-        </ScrollReveal>
+        <SectionHeading>Let&apos;s <em>talk</em></SectionHeading>
         
         <div className="contact-content">
           <ScrollReveal direction="left">

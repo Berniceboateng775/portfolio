@@ -1,14 +1,13 @@
 'use client';
 
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 
 export default function About() {
   return (
     <section className="section" id="about">
       <div className="container">
-        <ScrollReveal>
-          <h2 className="section-title">About Me</h2>
-        </ScrollReveal>
+        <SectionHeading>A little about <em>me</em></SectionHeading>
         
         <div className="about-content">
           <ScrollReveal direction="left">

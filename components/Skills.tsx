@@ -1,6 +1,7 @@
 'use client';
 
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 
 type Skill = string | { name: string; learning?: boolean };
 
@@ -36,9 +37,7 @@ export default function Skills() {
   return (
     <section className="section" id="skills">
       <div className="container">
-        <ScrollReveal>
-          <h2 className="section-title">Technical Skills</h2>
-        </ScrollReveal>
+        <SectionHeading>What I <em>work with</em></SectionHeading>
 
         <div className="skills-container">
           {skillCategories.map((category, index) => (

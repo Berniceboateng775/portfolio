@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import DataField from "@/components/DataField";
+import Ambient from "@/components/Ambient";
 import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
@@ -37,8 +37,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Decide before first paint whether the opening sequence plays (once per session). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var d=document.documentElement,s=sessionStorage.getItem('bb-intro'),r=matchMedia('(prefers-reduced-motion: reduce)').matches;d.dataset.intro=s||r?'skip':'play'}catch(e){document.documentElement.dataset.intro='play'}`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -46,12 +52,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>
       <body suppressHydrationWarning>
-        <DataField />
+        <Ambient />
         <ScrollProgress />
         {children}
       </body>
