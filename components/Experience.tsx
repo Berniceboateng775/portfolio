@@ -1,6 +1,7 @@
 'use client';
 
 import ScrollReveal from './ScrollReveal';
+import SectionHeading from './SectionHeading';
 
 type ExperiencePoint = string | { text: string; subPoints: string[] };
 
@@ -57,9 +58,7 @@ export default function Experience() {
   return (
     <section className="section" id="experience">
       <div className="container">
-        <ScrollReveal>
-          <h2 className="section-title">Experience</h2>
-        </ScrollReveal>
+        <SectionHeading>Where I&apos;ve <em>worked</em></SectionHeading>
         
         <div className="exp-grid">
           {experiences.map((exp, index) => (
