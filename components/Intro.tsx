@@ -195,10 +195,10 @@ function Scene({ progress }: { progress: MotionValue<number> }) {
           filter: { duration: 2.6, delay: 0.4, ease: 'easeOut' },
         }}
       >
-        {/* She moves by warping the pixels in place. head-map.png is strongest
-            at the top of her puff and fades to zero at the neck, so it reads
-            as a tilt from the neck; shoulder-map.png holds one shoulder per
-            channel (R left, G right). Blue is a neutral 0.5 for unused axes. */}
+        {/* Her head moves by warping the pixels in place: head-map.png is
+            strongest at the top of her puff and fades to zero at the neck,
+            so the displacement reads as a tilt from the neck. Red channel
+            carries the weight; blue is a neutral 0.5 for the unused axis. */}
         <svg
           viewBox="0 0 1536 864"
           preserveAspectRatio="xMidYMid slice"
@@ -211,16 +211,8 @@ function Scene({ progress }: { progress: MotionValue<number> }) {
               <feDisplacementMap in="SourceGraphic" in2="map" scale="0" xChannelSelector="R" yChannelSelector="B" result="sway">
                 <animate attributeName="scale" values="-20;20;-20" keyTimes="0;0.5;1" dur="3.8s" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" repeatCount="indefinite" />
               </feDisplacementMap>
-              <feDisplacementMap in="sway" in2="map" scale="0" xChannelSelector="B" yChannelSelector="R" result="nod">
+              <feDisplacementMap in="sway" in2="map" scale="0" xChannelSelector="B" yChannelSelector="R">
                 <animate attributeName="scale" values="0;-16;0" keyTimes="0;0.35;1" dur="0.95s" calcMode="spline" keySplines="0.3 0 0.4 1;0.5 0 0.6 1" repeatCount="indefinite" />
-              </feDisplacementMap>
-              {/* Typing: each shoulder dips in its own uneven rhythm, like hands on a keyboard. */}
-              <feImage href="/images/intro/shoulder-map.png" x="0" y="0" width="1536" height="864" preserveAspectRatio="none" result="shoulders" />
-              <feDisplacementMap in="nod" in2="shoulders" scale="0" xChannelSelector="B" yChannelSelector="R" result="leftHand">
-                <animate attributeName="scale" values="0;-20;-4;-17;0;-24;-5;0" dur="1.2s" repeatCount="indefinite" />
-              </feDisplacementMap>
-              <feDisplacementMap in="leftHand" in2="shoulders" scale="0" xChannelSelector="B" yChannelSelector="G">
-                <animate attributeName="scale" values="0;-5;-22;0;-16;-4;-20;0" dur="1.05s" repeatCount="indefinite" />
               </feDisplacementMap>
             </filter>
           </defs>
