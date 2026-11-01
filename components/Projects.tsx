@@ -19,8 +19,8 @@ interface Project {
 const projects: Project[] = [
   {
     title: 'MedMate DDI — Drug Interaction Checker',
-    description: 'Full-stack healthcare application detecting drug-drug interactions using DrugBank and PubChem data. Built severity classification models (XGBoost & Random Forest) and led the transformer model generating plain-language interaction descriptions. Deployed with Django REST API and React.',
-    tech: ['Python', 'React', 'Django', 'Transformers', 'XGBoost', 'PostgreSQL'],
+    description: 'Full-stack drug interaction checker trained on DrugBank and PubChem data. An XGBoost classifier rates each pair as mild, moderate or severe, and a T5 sequence-to-sequence model writes the interaction description, both served from Hugging Face Spaces. Gemini adds an extended explanation, safer alternatives and sources, and a clinician portal screens new prescriptions against each patient’s current medicines.',
+    tech: ['Python', 'XGBoost', 'T5', 'Hugging Face', 'Gemini', 'React', 'Django', 'PostgreSQL'],
     liveUrl: 'https://medmate-ddi.vercel.app',
     githubUrl: null,
     mlUrl: 'https://huggingface.co/spaces/Bernice775/drug-interaction-prediction',
