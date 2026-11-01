@@ -37,7 +37,7 @@ const projects: Project[] = [
     mlUrl: 'https://vellichor.onrender.com',
     videoUrl: 'https://youtu.be/8AguS4kIdXQ',
     status: 'live',
-    images: ['/images/vellichor.jpg'],
+    images: ['/images/vellichor-home.png', '/images/vellichor-dashboard.png', '/images/vellichor-mood.png', '/images/vellichor-chat.png', '/images/vellichor-discover.png', '/images/vellichor-signup.png'],
   },
   {
     title: 'Limerence',
@@ -47,6 +47,15 @@ const projects: Project[] = [
     githubUrl: null,
     status: 'in-progress',
     images: ['/images/limerence-genres.png', '/images/limerence-tropes.png', '/images/limerence-explore.png', '/images/limerence-chat.png'],
+  },
+  {
+    title: 'CardioGlobal — Heart Disease Analytics Dashboard',
+    description: 'Interactive dashboard on global cardiovascular disease, combining WHO mortality data for 195 countries with World Bank indicators and the UCI Cleveland dataset. Includes a Random Forest patient risk predictor (ROC-AUC 0.90), a LightGBM mortality forecaster out to 2050 (R² 0.78 on unseen 2020–2024 data) and UMAP + HDBSCAN clustering of country risk profiles.',
+    tech: ['Python', 'Dash', 'Plotly', 'scikit-learn', 'LightGBM', 'UMAP', 'HDBSCAN', 'Docker'],
+    liveUrl: 'https://cardioglobal.onrender.com',
+    githubUrl: 'https://github.com/Berniceboateng775/Heart-disease-project',
+    status: 'live',
+    images: ['/images/cardio-global.png', '/images/cardio-ml.png', '/images/cardio-forecast.png', '/images/cardio-regional.png', '/images/cardio-economic.png', '/images/cardio-risk.png', '/images/cardio-demographics.png'],
   },
   {
     title: 'Book Collection Management System',
