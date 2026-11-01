@@ -30,7 +30,7 @@ const projects: Project[] = [
   },
   {
     title: 'Vellichor AI — Emotion & Theme Analysis',
-    description: 'End-to-end fine-tuned GPT-2 model classifying emotion and subtext of written dialogue into 7 categories, served via a FastAPI backend. Features context-aware engineering and dropout to capture nuanced subtext instead of surface keywords.',
+    description: 'A reading companion that shows how a book feels. Mood Reader takes a PDF, a chapter or a single line and maps it across 7 emotions using a fine-tuned GPT-2 classifier served from a FastAPI backend, built to read subtext rather than surface keywords. Book Chat talks books through and recommends what to read next, and Discover filters titles by mood and genre.',
     tech: ['FastAPI', 'GPT-2', 'Hugging Face', 'React', 'Docker'],
     liveUrl: 'https://vellichor-ai.vercel.app',
     githubUrl: null,
