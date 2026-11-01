@@ -26,7 +26,7 @@ const projects: Project[] = [
     mlUrl: 'https://huggingface.co/spaces/Bernice775/drug-interaction-prediction',
     videoUrl: 'https://youtu.be/3Hjd1kbrc1A',
     status: 'live',
-    images: ['/images/medmate-hero.png','/images/anonymous.png', '/images/medmate-result.png'],
+    images: ['/images/medmate-home.png', '/images/medmate-checker.png', '/images/medmate-report.png', '/images/medmate-models.png', '/images/medmate-signin.png'],
   },
   {
     title: 'Vellichor AI — Emotion & Theme Analysis',
