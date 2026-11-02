@@ -9,19 +9,10 @@ import { SiSpotify } from 'react-icons/si';
    current. Cards drift on a slow float and lean toward the cursor.
 ---------------------------------------------------------------- */
 
-// Paste a Spotify playlist/album/track link into `embed` to show the real,
-// playable Spotify player instead of the styled card.
-const SPOTIFY = {
-  embed: 'https://open.spotify.com/playlist/5MQsIkcWjkXuCJI4HUJGa2',
-  link: 'https://open.spotify.com/playlist/5MQsIkcWjkXuCJI4HUJGa2',
-  title: 'Late-night focus mix',
-  subtitle: 'On repeat while I code',
-  elapsed: '1:24',
-  length: '3:52',
-};
-
-const toEmbedUrl = (url: string) =>
-  url.replace('open.spotify.com/', 'open.spotify.com/embed/').split('?')[0] + '?utm_source=generator&theme=0';
+// Live card: shows the track playing right now, or the last two played.
+// Rendered by spotify-recently-played.jeffreyca.workers.dev from my account.
+const SPOTIFY_USER = '312pev37l7avubjylcnpgnuun2oe';
+const SPOTIFY_CARD = `https://spotify-recently-played.jeffreyca.workers.dev/svg?user=${SPOTIFY_USER}&count=2&radius=13&duration=1&album=1&footer=wave&bg_color=1a1a1e`;
 
 // Rotates through the shelf. Covers live in /public/images/books.
 const BOOKS = [
@@ -67,38 +58,18 @@ export default function HeroDesk() {
   return (
     <div className="desk" ref={ref} onPointerMove={onMove} onPointerLeave={onLeave}>
       <div className="desk-slot slot-music" style={{ '--depth': 18 } as React.CSSProperties}>
-        {SPOTIFY.embed ? (
-          <iframe
-            className="desk-card spotify-embed"
-            src={toEmbedUrl(SPOTIFY.embed)}
-            title="Spotify player"
-            height="152"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          />
-        ) : (
-          <a className="desk-card card-music" href={SPOTIFY.link} target="_blank" rel="noopener noreferrer">
-            <div className="vinyl" aria-hidden="true">
-              <span />
-            </div>
-            <div className="music-body">
-              <p className="desk-kicker spotify-kicker">
-                <SiSpotify aria-hidden="true" />
-                Listening on Spotify
-                <span className="eq" aria-hidden="true"><i /><i /><i /><i /></span>
-              </p>
-              <h3 className="desk-title">{SPOTIFY.title}</h3>
-              <p className="desk-sub">{SPOTIFY.subtitle}</p>
-              <div className="track">
-                <span className="track-fill" />
-              </div>
-              <div className="track-times">
-                <span>{SPOTIFY.elapsed}</span>
-                <span>{SPOTIFY.length}</span>
-              </div>
-            </div>
-          </a>
-        )}
+        <a
+          className="desk-card card-spotify"
+          href={`https://open.spotify.com/user/${SPOTIFY_USER}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <p className="desk-kicker spotify-kicker">
+            <SiSpotify aria-hidden="true" />
+            What I&apos;m listening to
+          </p>
+          <img src={SPOTIFY_CARD} alt="My Spotify: playing now, or the last two tracks I played" width={400} height={207} />
+        </a>
       </div>
 
       <div className="desk-slot slot-book" style={{ '--depth': -14 } as React.CSSProperties}>

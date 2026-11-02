@@ -19,8 +19,8 @@ const experiences: ExperienceEntry[] = [
     role: 'AI/ML Engineer and Data Analyst (National Service)',
     company: 'Really Great Tech',
     location: 'Accra, Ghana',
-    period: 'Dec 2025 — Present',
-    type: 'current',
+    period: 'Dec 2025 — Sep 2026',
+    type: 'past',
     points: [
       {
         text: 'Semler Scientific — Peripheral Artery Disease (PAD) Severity:',

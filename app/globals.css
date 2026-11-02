@@ -650,7 +650,7 @@ html[data-intro="play"] .hero-anim { animation-play-state: paused; }
   box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.04);
   padding: 18px;
 }
-.card-music { display: flex; gap: 18px; align-items: center; rotate: 2deg; animation: float 7s ease-in-out infinite; }
+.card-spotify { display: block; padding: 14px 14px 10px; rotate: 2deg; animation: float 7s ease-in-out infinite; }
 .card-book { display: flex; gap: 18px; align-items: center; rotate: -3deg; animation: float 8s ease-in-out -2s infinite; }
 .card-term { padding: 0; rotate: 1.5deg; animation: float 9s ease-in-out -4s infinite; overflow: hidden; }
 
@@ -679,81 +679,13 @@ html[data-intro="play"] .hero-anim { animation-play-state: paused; }
 }
 .desk-sub { font-size: 0.82rem; color: var(--ink-mute); margin-top: 2px; }
 
-.music-body { flex: 1; min-width: 0; }
-.card-music { color: inherit; text-decoration: none; transition: border-color 0.4s var(--ease); }
-.card-music:hover { border-color: rgba(30, 215, 96, 0.45); }
-.spotify-kicker { color: var(--ink-dim); }
+.card-spotify { color: inherit; text-decoration: none; transition: border-color 0.4s var(--ease); }
+.card-spotify:hover { border-color: rgba(30, 215, 96, 0.45); }
+.card-spotify img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.spotify-kicker { color: var(--ink-dim); margin-bottom: 10px; }
 .spotify-kicker svg { color: #1ed760; width: 14px; height: 14px; }
-.spotify-kicker .eq { margin-left: auto; }
-.card-music .eq i,
-.card-music .track > span { background: #1ed760; }
-.spotify-embed {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: 14px;
-  rotate: 2deg;
-  animation: float 7s ease-in-out infinite;
-}
 
-.vinyl {
-  width: 92px;
-  height: 92px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, var(--accent) 0 15%, #0a0a0b 15.5% 18%, transparent 18.5%),
-    repeating-radial-gradient(circle, #141416 0 2px, #1c1c20 2px 3px);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-  position: relative;
-  animation: spin 6s linear infinite;
-}
-.vinyl span {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: conic-gradient(from 30deg, transparent 0 40deg, rgba(255, 255, 255, 0.08) 60deg, transparent 80deg 220deg, rgba(255, 255, 255, 0.06) 240deg, transparent 260deg);
-}
 @keyframes spin { to { transform: rotate(360deg); } }
-
-.eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 10px; }
-.eq i {
-  width: 2px;
-  height: 100%;
-  background: var(--accent);
-  border-radius: 2px;
-  transform-origin: bottom;
-  animation: eq 0.9s ease-in-out infinite;
-}
-.eq i:nth-child(2) { animation-delay: -0.3s; }
-.eq i:nth-child(3) { animation-delay: -0.6s; }
-.eq i:nth-child(4) { animation-delay: -0.15s; }
-@keyframes eq { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
-
-.track {
-  height: 3px;
-  border-radius: 3px;
-  background: var(--line-strong);
-  margin-top: 14px;
-  overflow: hidden;
-}
-.track > span {
-  display: block;
-  height: 100%;
-  background: var(--accent);
-  border-radius: 3px;
-}
-.track-fill { width: 36%; animation: trackPlay 40s linear infinite; }
-@keyframes trackPlay { from { width: 36%; } to { width: 100%; } }
-.track-times {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  color: var(--ink-mute);
-  margin-top: 6px;
-}
 
 .cover-stack {
   position: relative;
@@ -789,16 +721,6 @@ html[data-intro="play"] .hero-anim { animation-play-state: paused; }
   transition: width 0.4s var(--ease), background 0.4s var(--ease);
 }
 .shelf-dots span.on { width: 14px; background: var(--accent); }
-.read-progress {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  color: var(--ink-mute);
-}
-.read-progress .track { flex: 1; margin-top: 0; min-width: 120px; }
-.card-book .read-progress { margin-top: 12px; }
 
 .term-head {
   display: flex;
@@ -1465,8 +1387,6 @@ html[data-intro="play"] .term-line { animation-play-state: paused; }
   .project-content { padding: 22px 20px 16px; }
   .project-footer { padding: 12px 20px 20px; }
   .project-link-play { margin-left: 0; }
-  .card-music { flex-direction: row; }
-  .vinyl { width: 72px; height: 72px; }
   .slot-book { margin-left: 0; }
   .footer-content { flex-direction: column; align-items: flex-start; }
   .intro-top span { display: none; }
