@@ -1,59 +1,44 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { works } from '@/lib/works';
+import PaperCover, { type PaperState } from './PaperCover';
 
 /* ---------------------------------------------------------------
-   The first thing you see: a printed book, set in type only.
-   The cover is a chain of thin vertical strips along the spine.
-   Strip 0 is the hinge; the rest add curl toward the free edge and
-   one slow wave that travels across the sheet. The turn follows a
-   soft spring and the wave grows with speed and fades slowly, so
-   the page drifts and settles like loose paper in moving air.
+   The first thing you see: a printed book. The cover is one sheet
+   of paper drawn in WebGL (see PaperCover). This component owns the
+   motion: the turn follows a soft spring that chases the scroll
+   position, and "wind" builds with speed and fades slowly, so the
+   sheet drifts and settles like paper in moving air.
+   The DOM cover underneath is the click target, and the fallback
+   if WebGL is unavailable.
 ---------------------------------------------------------------- */
-
-const STRIPS = 22;
 
 function CoverArt() {
   return (
     <div className="cv-art">
       <div className="cv-title">
         <h2 className="cv-name">
-          Bernice Animwaa
+          Bernice
           <br />
-          Boateng
+          Animwaa
+          <br />
+          <span>Boateng</span>
         </h2>
         <span className="cv-vol">Vol. 01</span>
       </div>
-      <p className="cv-sub">machine learning, after hours</p>
+      <p className="cv-sub">Selected work · 2025–2026</p>
       <div className="cv-panel">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/book/cover-art.webp" alt="" draggable={false} />
       </div>
       <p className="cv-foot">
         <span>AI/ML Engineer · Software Developer</span>
-        <span>Accra</span>
+        <span>Accra, GH</span>
       </p>
-    </div>
-  );
-}
-
-function Strip({ i }: { i: number }) {
-  return (
-    <div className="strip">
-      <div className="strip-face strip-front">
-        <div className="strip-slice" style={{ left: `${-i * 100}%` }}>
-          <CoverArt />
-        </div>
-        <i className="strip-shade" />
-      </div>
-      <div className="strip-face strip-back">
-        <i className="strip-shade" />
-      </div>
-      {i < STRIPS - 1 && <Strip i={i + 1} />}
     </div>
   );
 }
@@ -61,19 +46,16 @@ function Strip({ i }: { i: number }) {
 export default function Opening() {
   const section = useRef<HTMLElement>(null);
   const cover = useRef<HTMLDivElement>(null);
+  const paper = useRef<PaperState>({ turn: 0, wind: 0, lift: 0 });
+  const [gl, setGl] = useState(false);
+  const onReady = useCallback((ok: boolean) => setGl(ok), []);
 
   useEffect(() => {
     const sec = section.current;
     const cv = cover.current;
     if (!sec || !cv) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const strips = Array.from(cv.querySelectorAll<HTMLElement>('.strip'));
-    const shades = strips.map((s) => Array.from(s.querySelectorAll<HTMLElement>(':scope > .strip-face > .strip-shade')));
     const ease = gsap.parseEase('power2.inOut');
-
-    // share of curl per strip: none at the hinge, most at the free edge
-    const weights = strips.map((_, i) => (i === 0 ? 0 : Math.pow(i / (STRIPS - 1), 1.6)));
-    const wSum = weights.reduce((a, b) => a + b, 0);
 
     let target = 0;
     let turn = 0;
@@ -100,33 +82,14 @@ export default function Opening() {
 
       // wind builds with speed and dies away slowly, so the sheet keeps
       // moving for a moment after you stop scrolling
-      const speed = Math.min(Math.abs(vel) * 28, 1);
-      wind += (speed - wind) * (speed > wind ? 0.09 : 0.03) * dt;
+      const speed = Math.min(Math.abs(vel) * 45, 1);
+      wind += (speed - wind) * (speed > wind ? 0.12 : 0.018) * dt;
 
       const e = ease(Math.min(Math.max(turn, 0), 1));
       sec.style.setProperty('--open', e.toFixed(4));
-
-      const airborne = Math.sin(Math.PI * e);
-      const hinge = 180 * e;
-      // the sheet cups while it is in the air, lifts toward a hovering cursor,
-      // and breathes very slightly while it rests shut
-      const idle = reduce ? 0 : (1 - e) * (2 + 1.5 * Math.sin(t / 1400));
-      const curl = airborne * 70 + idle + lift * (1 - e) + wind * 18 * airborne;
-      // one slow wave travelling from the spine to the free edge
-      const waveAmp = reduce ? 0 : (0.4 + airborne * 2.2 + wind * 4.5);
-      const phase = t / 520;
-
-      let total = 0;
-      strips.forEach((s, i) => {
-        const r = i / (STRIPS - 1);
-        let a = i === 0 ? hinge : (curl * weights[i]) / wSum;
-        if (i > 0) a += Math.sin(phase - r * 2.6) * waveAmp * r * r;
-        total += a;
-        s.style.transform = `rotateY(${(-a).toFixed(3)}deg)`;
-        const c = (total * Math.PI) / 180;
-        const dark = Math.max(0, 1 - Math.cos(c)) * 0.28 + Math.max(0, Math.sin(c)) * 0.14;
-        shades[i].forEach((sh) => (sh.style.opacity = dark.toFixed(3)));
-      });
+      paper.current.turn = e;
+      paper.current.wind = reduce ? 0 : wind;
+      paper.current.lift = lift;
 
       if (visible && !reduce) raf = requestAnimationFrame(frame);
     };
@@ -146,7 +109,7 @@ export default function Opening() {
 
     const onEnter = (ev: PointerEvent) => {
       if (ev.pointerType !== 'mouse') return;
-      liftTarget = 30;
+      liftTarget = 0.12;
       request();
     };
     const onLeave = () => {
@@ -250,7 +213,7 @@ export default function Opening() {
           {/* the cover */}
           <div
             ref={cover}
-            className="op-cover"
+            className={`op-cover${gl ? ' is-gl' : ''}`}
             role="button"
             tabIndex={0}
             aria-label="Open the book: Bernice Animwaa Boateng, Vol. 01"
@@ -262,8 +225,9 @@ export default function Opening() {
               }
             }}
           >
-            <Strip i={0} />
+            <CoverArt />
           </div>
+          <PaperCover state={paper} anchor={cover} onReady={onReady} />
         </div>
       </div>
     </section>
