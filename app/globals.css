@@ -659,6 +659,7 @@ ul, ol { list-style: none; }
   backface-visibility: hidden;
 }
 .op-cover.is-gl { transform: none; opacity: 0; }
+.op-book:has(.is-gl) .op-left { opacity: 0; }
 .paper-gl {
   position: absolute;
   z-index: 3;

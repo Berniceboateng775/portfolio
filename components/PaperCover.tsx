@@ -89,7 +89,7 @@ const fragment = /* glsl */ `
       : texture2D(uBack, vec2(1.0 - vUv.x, vUv.y));
     vec3 L = normalize(vec3(-0.35, 0.45, 1.0));
     float diff = max(dot(n, L), 0.0);
-    float light = 0.55 + 0.5 * diff;
+    float light = gl_FrontFacing ? 0.55 + 0.5 * diff : 0.86 + 0.2 * diff;
     float spec = pow(max(dot(reflect(-L, n), vec3(0.0, 0.0, 1.0)), 0.0), 24.0) * 0.12;
     // a soft shadow along the spine
     float spine = smoothstep(0.0, 0.06, vUv.x);
@@ -194,13 +194,108 @@ async function drawFront(W: number, H: number) {
   return c;
 }
 
-function drawBack(W: number, H: number) {
+// Wraps text into lines that fit `max` px; returns the lines.
+function wrap(g: CanvasRenderingContext2D, text: string, max: number) {
+  const words = text.split(' ');
+  const lines: string[] = [];
+  let line = '';
+  for (const w of words) {
+    const test = line ? `${line} ${w}` : w;
+    if (g.measureText(test).width > max && line) {
+      lines.push(line);
+      line = w;
+    } else line = test;
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+// The inside of the cover: the preface, so it can be read while the
+// sheet is still in the air. Matches the left page laid out in Opening.
+async function drawBack(W: number, H: number) {
   const c = document.createElement('canvas');
   c.width = W;
   c.height = H;
   const g = c.getContext('2d')!;
-  g.fillStyle = '#ebe4d8';
+  await document.fonts?.ready;
+  const display = cssVar('--font-display') || 'sans-serif';
+  const body = cssVar('--font-body') || 'sans-serif';
+  const mono = cssVar('--font-mono') || 'monospace';
+  const ink = '#141414';
+  const soft = '#37332f';
+  const mute = '#5c5650';
+  const accent = '#ff5a1f';
+  const padX = W * 0.085;
+  const padTop = W * 0.08;
+  const padBot = W * 0.065;
+  const inner = W - padX * 2;
+
+  g.fillStyle = '#efe9df';
   g.fillRect(0, 0, W, H);
+  // a soft shadow toward the spine (the right edge, once it lands)
+  const sh = g.createLinearGradient(W, 0, W - W * 0.12, 0);
+  sh.addColorStop(0, 'rgba(0,0,0,0.18)');
+  sh.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = sh;
+  g.fillRect(0, 0, W, H);
+
+  // running head
+  g.font = `400 ${W * 0.024}px ${mono}`;
+  g.fillStyle = mute;
+  g.textBaseline = 'alphabetic';
+  g.fillText('PREFACE', padX, padTop + W * 0.02);
+  g.fillStyle = accent;
+  g.textAlign = 'right';
+  g.fillText('ii', W - padX, padTop + W * 0.02);
+  g.textAlign = 'left';
+  g.fillStyle = 'rgba(20,20,20,0.35)';
+  g.fillRect(padX, padTop + W * 0.042, inner, Math.max(1, W * 0.0018));
+
+  // footer
+  const footY = H - padBot;
+  g.fillStyle = 'rgba(20,20,20,0.35)';
+  g.fillRect(padX, footY - W * 0.05, inner, Math.max(1, W * 0.0018));
+  g.font = `400 ${W * 0.026}px ${mono}`;
+  g.fillStyle = ink;
+  g.fillText('WRITE TO ME', padX, footY - W * 0.012);
+  g.textAlign = 'right';
+  g.fillText('RÉSUMÉ (PDF)', W - padX, footY - W * 0.012);
+  g.textAlign = 'left';
+
+  // body, set from the bottom up so it sits above the footer
+  const paras = [
+    'I’m a machine learning engineer and software developer in Accra. I like the whole journey: cleaning the data, training the model, then building the app around it so someone can actually use it.',
+    'The pages that follow are things I’ve built. When I’m not building, I’m usually halfway through a romance novel with a playlist on repeat.',
+  ];
+  const fs = W * 0.031;
+  const lh = fs * 1.62;
+  g.font = `400 ${fs}px ${body}`;
+  const blocks = paras.map((t, i) => wrap(g, t, inner - (i === 0 ? 0 : 0)));
+  const signH = W * 0.075;
+  const bodyH = blocks.reduce((h, l) => h + l.length * lh, 0) + lh * 0.4;
+  const headFs = W * 0.1;
+  const blockBottom = footY - W * 0.11;
+  let y = blockBottom - signH - bodyH - headFs * 0.45;
+
+  g.font = `700 ${headFs}px ${display}`;
+  g.fillStyle = ink;
+  (g as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing = `${-headFs * 0.05}px`;
+  g.fillText('Hi, I’m Bernice.', padX, y);
+  (g as CanvasRenderingContext2D & { letterSpacing?: string }).letterSpacing = '0px';
+  y += headFs * 0.45 + lh * 0.7;
+
+  g.font = `400 ${fs}px ${body}`;
+  g.fillStyle = soft;
+  blocks.forEach((lines, bi) => {
+    lines.forEach((ln) => {
+      g.fillText(ln, padX, y);
+      y += lh;
+    });
+    if (bi === 0) y += lh * 0.4;
+  });
+  g.font = `italic 400 ${W * 0.03}px ${body}`;
+  g.fillStyle = accent;
+  g.fillText('— Bernice Animwaa Boateng', padX, y + W * 0.03);
   return c;
 }
 
@@ -274,7 +369,7 @@ export default function PaperCover({
       if (Math.abs(W - texW) < 60) return;
       texW = W;
       const H = Math.round(W * 1.42);
-      const [front, back] = await Promise.all([drawFront(W, H), Promise.resolve(drawBack(W, H))]);
+      const [front, back] = await Promise.all([drawFront(W, H), drawBack(W, H)]);
       if (disposed) return;
       const tf = new THREE.CanvasTexture(front);
       const tb = new THREE.CanvasTexture(back);
