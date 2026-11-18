@@ -1,65 +1,46 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Ambient from "@/components/Ambient";
-import ScrollProgress from "@/components/ScrollProgress";
+import type { Metadata, Viewport } from 'next';
+import { Inter, JetBrains_Mono, Sora } from 'next/font/google';
+import './globals.css';
+import Masthead from '@/components/Masthead';
+import Reveals from '@/components/Reveals';
+import SmoothScroll from '@/components/SmoothScroll';
+
+const sora = Sora({ subsets: ['latin'], variable: '--font-display', display: 'swap' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
+const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: "Bernice Animwaa Boateng | AI/ML Engineer & Software Developer",
-  description:
-    "Portfolio of Bernice Animwaa Boateng — AI/ML engineer and software developer. Building clinical ML pipelines, intelligent signal processing systems, and full-stack AI applications with Python, PyTorch, XGBoost, and React.",
-  keywords: [
-    "AI/ML Engineer",
-    "Software Developer",
-    "Machine Learning",
-    "Deep Learning",
-    "PyTorch",
-    "XGBoost",
-    "Python",
-    "FastAPI",
-    "React",
-    "Portfolio",
-  ],
-  authors: [{ name: "Bernice Animwaa Boateng" }],
-  openGraph: {
-    title: "Bernice Animwaa Boateng | AI/ML Engineer & Software Developer",
-    description:
-      "AI/ML engineer and software developer building clinical ML pipelines, intelligent signal processing systems, and full-stack AI applications.",
-    type: "website",
+  metadataBase: new URL('https://bernices-portfolio.vercel.app'),
+  title: {
+    default: 'Bernice Animwaa Boateng — AI/ML Engineer & Software Developer',
+    template: '%s — Bernice Animwaa Boateng',
   },
-  icons: {
-    icon: '/logo.svg',
+  description:
+    'AI/ML engineer and software developer in Accra, Ghana. Clinical machine learning, NLP and the full-stack products around them: MedMate, Vellichor, Limerence, CardioGlobal.',
+  authors: [{ name: 'Bernice Animwaa Boateng' }],
+  openGraph: {
+    title: 'Bernice Animwaa Boateng reads between the lines',
+    description: 'AI/ML engineer and software developer. Models that find what is not written down, and the products around them.',
+    type: 'website',
+    images: ['/work/medmate/home.webp'],
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: '#0b0b0d',
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Decide before first paint whether the opening sequence plays (once per session). */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var d=document.documentElement,s=sessionStorage.getItem('bb-intro'),r=matchMedia('(prefers-reduced-motion: reduce)').matches;d.dataset.intro=s||r?'skip':'play'}catch(e){document.documentElement.dataset.intro='play'}`,
-          }}
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body suppressHydrationWarning>
-        <Ambient />
-        <ScrollProgress />
+    <html lang="en" className={`${sora.variable} ${inter.variable} ${mono.variable}`}>
+      <body>
+        <a href="#main" className="skip">
+          Skip to content
+        </a>
+        <SmoothScroll />
+        <Masthead />
         {children}
+        <Reveals />
       </body>
     </html>
   );
